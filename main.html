@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuchamos contigo Noelia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .donate-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a"><stop offset="0" stop-color="%23ffffff" stop-opacity=".1"/><stop offset="1" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="180" fill="url(%23a)"/><circle cx="800" cy="300" r="120" fill="url(%23a)"/><circle cx="300" cy="700" r="150" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .countdown h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Story Carousel */
+        .story-carousel {
+            max-width: 900px;
+            margin: 2rem auto;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .slide-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .slide-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .progress-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 25px;
+            height: 40px;
+            overflow: hidden;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            height: 100%;
+            width: 15%;
+            border-radius: 25px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+
+        .story-timeline {
+            display: grid;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-year {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* How to Help Section */
+        .help-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .help-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .help-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .help-card.coming-soon {
+            position: relative;
+        }
+
+        .help-card.coming-soon .help-icon,
+        .help-card.coming-soon h3,
+        .help-card.coming-soon p,
+        .help-card.coming-soon .cta-button {
+            position: relative;
+            z-index: 2;
+        }
+
+        .help-card.coming-soon .cta-button {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .help-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .help-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .help-card p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Implant Info */
+        .implant-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .implant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .implant-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .implant-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Wittgenstein Quote */
+        .philosophy-quote {
+            background: #f8fafc;
+            padding: 3rem;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #4a5568;
+            border-left: 5px solid #667eea;
+            margin: 2rem 0;
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-quote {
+                font-size: 1.4rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .countdown-timer {
+                gap: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .help-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-carousel {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+            
+            .carousel-slide {
+                padding: 1rem;
+            }
+            
+            .slide-title {
+                font-size: 1.2rem;
+            }
+            
+            .slide-content {
+                font-size: 1rem;
+            }
+            
+            .carousel-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            
+            .carousel-prev {
+                left: 5px;
+            }
+            
+            .carousel-next {
+                right: 5px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Escuchamos contigo Noelia</div>
+            <ul class="nav-links">
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#ayudar">Cómo Ayudar</a></li>
+                <li><a href="#progreso">Progreso</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#donar" class="donate-btn">Donar Ahora</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-quote">"Papá, no puedo escuchar"</div>
+                <h1>Escuchamos contigo Noelia</h1>
+                
+                <div class="story-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slides" id="carouselSlides">
+                            <div class="carousel-slide">
+                                <div class="slide-title">🏠 La Historia Comienza</div>
+                                <div class="slide-content">
+                                    Hola, soy Ayrton, papá de Noelia y también de Nicole. Esta historia comenzó con una frase que no me voy a olvidar nunca. Ese día, llegué a la escuela como cualquier otro… y Noelia me miró, y me dijo: "Papá, no puedo escuchar".
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-title">💔 El Momento que Cambió Todo</div>
+                                <div class="slide-content">
+                                    En ese momento, sentí un nudo en el pecho. Fue un impacto muy fuerte… porque me trajo muchos recuerdos. Me acordé del diagnóstico, de la cirugía, del encendido. De todo lo que vivimos para que Noelia pudiera oír por primera vez.
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-title">🦻 La Urgencia de Hoy</div>
+                                <div class="slide-content">
+                                    Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Necesita dos nuevos procesadores Nucleus 8 para sus implantes cocleares. Si falla el que tiene, su mundo vuelve al silencio.
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="slide-title">🤝 Por Qué Necesitamos Tu Ayuda</div>
+                                <div class="slide-content">
+                                    Quiero contarte la historia de Noelia. Porque hoy necesitamos que muchas personas la escuchen… para que ella pueda seguir escuchándonos a nosotros. Tu apoyo puede cambiar su vida para siempre.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav carousel-prev" onclick="prevSlide()">‹</button>
+                    <button class="carousel-nav carousel-next" onclick="nextSlide()">›</button>
+                    
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                    </div>
+                </div>
+                
+                <div class="countdown">
+                    <h3>Campaña de 60 días - Meta: 1 de septiembre de 2025</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem; opacity: 0.8;">Primera meta: USD 8,856 para un procesador</p>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">--</span>
+                            <span class="countdown-label">Días</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">--</span>
+                            <span class="countdown-label">Horas</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">--</span>
+                            <span class="countdown-label">Minutos</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="seconds">--</span>
+                            <span class="countdown-label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section" id="progreso">
+        <div class="container">
+            <div class="progress-container">
+                <h2>Progreso de la Campaña</h2>
+                <p>Meta: USD 17,712 (dos procesadores Nucleus 8 de Cochlear)</p>
+                <p style="font-size: 1.1rem; color: #666; margin-top: 0.5rem;">Primera meta: USD 8,856 antes del 1 de septiembre de 2025</p>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                
+                <div class="progress-stats">
+                    <div class="stat">
+                        <div class="stat-number">USD 2,657</div>
+                        <div class="stat-label">Recaudado</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15%</div>
+                        <div class="stat-label">Completado</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">USD 15,055</div>
+                        <div class="stat-label">Restante</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia Section -->
+    <section class="section" id="historia">
+        <div class="container">
+            <h2>La Historia de Noelia</h2>
+            <div class="story-timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2013 - El Diagnóstico</div>
+                    <div class="timeline-content">
+                        Cuando Noelia tenía 2 años, recibimos el diagnóstico: hipoacusia bilateral profunda. Un mundo de silencio se abría ante nosotros, pero también un camino de esperanza. No respondía a estímulos sonoros y los audífonos convencionales no eran una opción.
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2016 - La Cirugía que Cambió Todo</div>
+                    <div class="timeline-content">
+                        A los 5 años, Noelia recibió sus implantes cocleares bilaterales. Como familia, sabíamos que esta cirugía cambiaría nuestras vidas para siempre.
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">1 Septiembre 2016 - El Día Más Importante</div>
+                    <div class="timeline-content">
+                        El encendido fue exitoso. Noelia escuchó por primera vez y comenzó su proceso de adaptación al mundo sonoro. Para nosotros, esta fecha se convirtió en su segundo cumpleaños, una celebración familiar que nunca olvidaremos.
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">2016-2024 - Creciendo Juntos</div>
+                    <div class="timeline-content">
+                        Con acceso al lenguaje oral y escolarización regular en Jopoi, Noelia ha requerido apoyo constante: terapia fonoaudiológica, apoyo psicopedagógico y maestra integradora. Como familia, invertimos 70% de nuestros ingresos en sus necesidades, pero cada sacrificio vale la pena.
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Septiembre 2024 - El Orgullo de Papá</div>
+                    <div class="timeline-content">
+                        Noelia presentó en la escuela Jopoi cómo funciona su implante coclear, mostrando con claridad y confianza lo que ha significado en su vida. Ver su seguridad y determinación me llenó de orgullo y me motivó a iniciar esta campaña.
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-year">Junio 2025 - El Momento que Cambió Todo</div>
+                    <div class="timeline-content">
+                        "Papá, no puedo escuchar" - esas palabras me rompieron el corazón. Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Si falla, su mundo vuelve al silencio. El 14 de junio decidí hacer pública nuestra situación y pedir ayuda.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="philosophy-quote">
+                "Los límites de mi lenguaje son los límites de mi mundo"
+                <div class="quote-author">- Ludwig Wittgenstein</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implant Info Section -->
+    <section class="section">
+        <div class="container">
+            <h2>¿Qué es un Implante Coclear?</h2>
+            <div class="implant-info">
+                <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+                    Un implante coclear es un dispositivo médico que transforma los sonidos en señales eléctricas que el cerebro puede interpretar como sonido.
+                </p>
+                
+                <div class="implant-grid">
+                    <div class="implant-item">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Procesador Externo</h3>
+                        <p>Captura y procesa los sonidos del ambiente</p>
+                    </div>
+                    <div class="implant-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Estimulación Eléctrica</h3>
+                        <p>Convierte el sonido en impulsos eléctricos</p>
+                    </div>
+                    <div class="implant-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Percepción Cerebral</h3>
+                        <p>El cerebro interpreta las señales como sonido</p>
+                    </div>
+                    <div class="implant-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Vida Útil Limitada</h3>
+                        <p>Los procesadores deben reemplazarse cada 7-10 años</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Help Section -->
+    <section class="section" id="ayudar">
+        <div class="container">
+            <h2>¿Cómo Podés Ayudar?</h2>
+            <div class="help-options">
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Donación Directa</h3>
+                    <p>Cualquier monto suma. Tu contribución nos acerca a la meta de USD 17,712 para los dos procesadores Nucleus 8 de Cochlear.</p>
+                    <a href="#donar" class="cta-button">Donar Ahora</a>
+                </div>
+                
+                <div class="help-card coming-soon">
+                    <div class="help-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>Rifa Solidaria</h3>
+                    <p>Comprá un ticket digital y participá por increíbles premios mientras ayudás a Noelia.</p>
+                    <span class="cta-button secondary" style="pointer-events: none;">Muy Pronto</span>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Compartir la Historia</h3>
+                    <p>Difundí esta campaña en tus redes sociales. Tu alcance puede llegar a alguien que quiera ayudar.</p>
+                    <a href="#compartir" class="cta-button">Compartir Ahora</a>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Voluntariado</h3>
+                    <p>Unite como voluntario para ayudar con la organización, difusión o eventos solidarios.</p>
+                    <a href="#voluntario" class="cta-button">Ser Voluntario</a>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Empresas Amigas</h3>
+                    <p>¿Representás una empresa? Conocé nuestro kit de colaboración y opciones de sponsorship.</p>
+                    <a href="#empresas" class="cta-button">Kit Empresarial</a>
+                </div>
+                
+                <div class="help-card">
+                    <div class="help-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Donador Ángel</h3>
+                    <p>¿Podés cubrir una etapa completa? Convertite en un donador ángel y cambiá la vida de Noelia.</p>
+                    <a href="#angel" class="cta-button secondary">Ser Ángel</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Hablemos</h2>
+            <p>Si querés saber más sobre la historia de Noelia, o cómo podés ayudarnos, no dudes en escribirme.</p>
+            <p style="font-size: 1.1rem; margin-top: 1rem; font-weight: 500;">
+                Soy Ayrton Argani, papá de Noelia, y estaré encantado de conversar contigo
+            </p>
+            
+            <div class="contact-methods">
+                <a href="https://wa.me/59170844466" class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="mailto:info@escuchamoscontigonoelia.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.instagram.com/escuchamoscontigonoelia/" class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/@escuchamoscontigonoelia" class="contact-item">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                📍 Santa Cruz, Bolivia | Escuela Jopoi<br>
+                👨‍👧 Ayrton Argani - Papá de Noelia<br>
+                🎯 Campaña iniciada: 14 de junio de 2025<br>
+                📱 Síguenos: @escuchamoscontigonoelia
+            </p>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/59170844466" class="fab" title="Contactar a Ayrton por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('September 1, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h3>¡La fecha límite ha llegado!</h3>';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Story Carousel Functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            const slidesContainer = document.getElementById('carouselSlides');
+            const offset = -index * 100;
+            slidesContainer.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            currentSlideIndex = index;
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(nextIndex);
+        }
+
+        function prevSlide() {
+            const prevIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(prevIndex);
+        }
+
+        function currentSlide(index) {
+            showSlide(index - 1);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .help-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Progress bar animation
+        function animateProgressBar() {
+            const progressFill = document.querySelector('.progress-fill');
+            const targetWidth = 15; // 15% progress
+            let currentWidth = 0;
+            
+            const animation = setInterval(() => {
+                if (currentWidth >= targetWidth) {
+                    clearInterval(animation);
+                } else {
+                    currentWidth++;
+                    progressFill.style.width = currentWidth + '%';
+                }
+            }, 50);
+        }
+
+        // Trigger progress animation when section is visible
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBar();
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        progressObserver.observe(document.querySelector('.progress-section'));
+    </script>
+</body>
+</html>
