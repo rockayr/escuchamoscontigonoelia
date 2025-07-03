@@ -244,18 +244,19 @@
         .hero {
             background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
             color: white;
-            padding: 140px 0 100px;
+            padding: 120px 0 60px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 100vh;
+            min-height: calc(100vh - 80px);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            padding-top: 140px;
         }
 
         .hero-countdown {
-            max-width: 800px;
-            margin: 2rem auto;
+            max-width: 1000px;
+            margin: 3rem auto 2rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
@@ -340,24 +341,81 @@
 
         /* Hero Content Layout */
         .hero-content-layout {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 3rem auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2.5rem;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: flex-start;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 1rem auto 2rem;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
+            border: none;
         }
 
         .hero-video-container {
-            flex: 0.8;
-            min-width: 280px;
-            max-width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            min-height: 400px;
+        }
+
+        .hero-content-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            height: 100%;
+            justify-content: flex-start;
+            align-self: flex-start;
+        }
+
+        .hero-titles {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-titles h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .hero-titles .hero-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        /* TikTok embed styles */
+        .tiktok-embed {
+            border-radius: 15px !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            overflow: hidden !important;
+            background: white !important;
+        }
+
+        .tiktok-embed:hover {
+            transform: scale(1.02) !important;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25) !important;
         }
 
         .hero-video {
@@ -419,11 +477,40 @@
 
         /* Story Carousel */
         .story-carousel {
-            flex: 1.2;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 2rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
-            background: transparent;
-            border-radius: 20px;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
             padding: 1.5rem;
+            text-align: left;
+        }
+
+        .slide-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slide-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: left;
         }
 
         .carousel-container {
@@ -790,6 +877,31 @@
             box-shadow: 0 10px 20px rgba(43, 156, 184, 0.3);
         }
 
+        /* Help Section Background */
+        #ayudar {
+            background: linear-gradient(135deg, rgba(255, 154, 86, 0.08) 0%, rgba(255, 107, 53, 0.05) 100%), url('cdn/20170225_090722.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        #ayudar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.92);
+            z-index: 1;
+        }
+
+        #ayudar .container {
+            position: relative;
+            z-index: 2;
+        }
+
         /* Implant Info */
         .implant-info {
             background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
@@ -942,18 +1054,37 @@
             
             /* Hero Content Layout Mobile */
             .hero-content-layout {
-                flex-direction: column;
+                grid-template-columns: 1fr;
                 gap: 2.5rem;
-                padding: 2rem;
-                margin: 2rem auto;
+                margin: 1rem auto 2rem;
+                align-items: flex-start;
             }
             
             .hero-video-container {
                 min-width: auto;
                 width: 100%;
-                max-width: 400px;
+                max-width: 500px;
                 margin: 0 auto;
-                flex: none;
+                min-height: 300px;
+                padding: 1.5rem;
+            }
+            
+            .hero-titles {
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-titles h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-titles .hero-quote {
+                font-size: 1.3rem;
+            }
+            
+            .tiktok-embed {
+                max-width: 100% !important;
+                min-width: 280px !important;
             }
             
             .hero-video {
@@ -976,19 +1107,23 @@
             
             .story-carousel {
                 margin: 1rem auto;
-                padding: 1rem;
+                padding: 1.5rem;
+                min-height: 280px;
             }
             
             .carousel-slide {
                 padding: 1rem;
+                text-align: center;
             }
             
             .slide-title {
                 font-size: 1.2rem;
+                justify-content: center;
             }
             
             .slide-content {
                 font-size: 1rem;
+                text-align: center;
             }
             
             .carousel-nav {
@@ -1329,6 +1464,37 @@
             box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
         }
 
+        /* Share Modal specific styles */
+        .share-image-container img {
+            transition: transform 0.3s ease;
+            max-height: 300px;
+        }
+
+        .share-image-container img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Social media button colors */
+        .cta-button[style*="background: #25d366"]:hover {
+            background: #20b358 !important;
+        }
+
+        .cta-button[style*="background: #4267b2"]:hover {
+            background: #365899 !important;
+        }
+
+        .cta-button[style*="background: #1da1f2"]:hover {
+            background: #0d8bd9 !important;
+        }
+
+        .cta-button[style*="background: #e4405f"]:hover {
+            background: #c13584 !important;
+        }
+
+        .cta-button[style*="background: #000000"]:hover {
+            background: #333333 !important;
+        }
+
         /* Mobile responsiveness for modal */
         @media (max-width: 768px) {
             .donation-modal {
@@ -1419,55 +1585,65 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in">
-                <div class="hero-quote">"Papá, no puedo escuchar"</div>
-                <h1>Escuchamos contigo Noelia</h1>
-                
                 <div class="hero-content-layout">
+                    <!-- Left Side: Video -->
                     <div class="hero-video-container">
-                        <video class="hero-video" controls poster="">
-                            <source src="cdn/lv_0_20250627212631.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@escuchamoscontigonoelia/video/7520807398844419384" data-video-id="7520807398844419384" style="max-width: 605px;min-width: 325px;" > 
+                            <section> 
+                                <a target="_blank" title="@escuchamoscontigonoelia" href="https://www.tiktok.com/@escuchamoscontigonoelia?refer=embed">@escuchamoscontigonoelia</a> 
+                                <p>La historia de Noelia - Escuchamos contigo 🦻💙 #ImplanteCoclear #Audicion #Solidaridad #Bolivia</p> 
+                                <a target="_blank" title="♬ sonido original - Escuchamos contigo Noelia" href="https://www.tiktok.com/music/sonido-original-7520807399351446279?refer=embed">♬ sonido original - Escuchamos contigo Noelia</a> 
+                            </section> 
+                        </blockquote> 
+                        <script async src="https://www.tiktok.com/embed.js"></script>
                     </div>
                     
-                    <div class="story-carousel">
-                        <div class="carousel-container">
-                            <div class="carousel-slides" id="carouselSlides">
-                                <div class="carousel-slide">
-                                    <div class="slide-title">🏠 La Historia Comienza</div>
-                                    <div class="slide-content">
-                                        Hola, soy Ayrton, papá de Noelia y también de Nicole. Esta historia comenzó con una frase que no me voy a olvidar nunca. Ese día, llegué a la escuela como cualquier otro… y Noelia me miró, y me dijo: "Papá, no puedo escuchar".
+                    <!-- Right Side: Titles & Carousel -->
+                    <div class="hero-content-right">
+                        <div class="hero-titles">
+                            <div class="hero-quote">"Papá, no puedo escuchar"</div>
+                            <h1>Escuchamos contigo Noelia</h1>
+                        </div>
+                        
+                        <div class="story-carousel">
+                            <div class="carousel-container">
+                                <div class="carousel-slides" id="carouselSlides">
+                                    <div class="carousel-slide">
+                                        <div class="slide-title">🏠 La Historia Comienza</div>
+                                        <div class="slide-content">
+                                            Hola, soy Ayrton papá de Noelia. Esta historia comenzó con una frase que no me voy a olvidar nunca. Ese día, llegué a la escuela como cualquier otro… y Noelia me miró, y me dijo: "Papá, no puedo escuchar".
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-slide">
-                                    <div class="slide-title">💔 El Momento que Cambió Todo</div>
-                                    <div class="slide-content">
-                                        En ese momento, sentí un nudo en el pecho. Fue un impacto muy fuerte… porque me trajo muchos recuerdos. Me acordé del diagnóstico, de la cirugía, del encendido. De todo lo que vivimos para que Noelia pudiera oír por primera vez.
+                                    <div class="carousel-slide">
+                                        <div class="slide-title">💔 El Momento que Cambió Todo</div>
+                                        <div class="slide-content">
+                                            En ese momento, sentí un nudo en el pecho. Fue un impacto muy fuerte… porque me trajo muchos recuerdos. Me acordé del diagnóstico, de la cirugía, del encendido. De todo lo que vivimos para que Noelia pudiera oír por primera vez.
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-slide">
-                                    <div class="slide-title">🦻 La Urgencia de Hoy</div>
-                                    <div class="slide-content">
-                                        Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Necesita dos nuevos procesadores Nucleus 8 para sus implantes cocleares. Si falla el que tiene, su mundo vuelve al silencio.
+                                    <div class="carousel-slide">
+                                        <div class="slide-title">🦻 La Urgencia de Hoy</div>
+                                        <div class="slide-content">
+                                            Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Necesita dos nuevos procesadores de sonido para sus implantes cocleares. Si falla el que tiene, su mundo vuelve al silencio.
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="carousel-slide">
-                                    <div class="slide-title">🤝 Por Qué Necesitamos Tu Ayuda</div>
-                                    <div class="slide-content">
-                                        Quiero contarte la historia de Noelia. Porque hoy necesitamos que muchas personas la escuchen… para que ella pueda seguir escuchándonos a nosotros. Tu apoyo puede cambiar su vida para siempre.
+                                    <div class="carousel-slide">
+                                        <div class="slide-title">🤝 Por Qué Necesitamos Tu Ayuda</div>
+                                        <div class="slide-content">
+                                            Quiero contarte la historia de Noelia. Porque hoy necesitamos que muchas personas la escuchen… para que ella pueda seguir escuchándonos a nosotros. Tu apoyo puede cambiar su vida hoy.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <button class="carousel-nav carousel-prev" onclick="prevSlide()">‹</button>
-                        <button class="carousel-nav carousel-next" onclick="nextSlide()">›</button>
-                        
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <span class="dot" onclick="currentSlide(3)"></span>
-                            <span class="dot" onclick="currentSlide(4)"></span>
+                            
+                            <button class="carousel-nav carousel-prev" onclick="prevSlide()">‹</button>
+                            <button class="carousel-nav carousel-next" onclick="nextSlide()">›</button>
+                            
+                            <div class="carousel-dots">
+                                <span class="dot active" onclick="currentSlide(1)"></span>
+                                <span class="dot" onclick="currentSlide(2)"></span>
+                                <span class="dot" onclick="currentSlide(3)"></span>
+                                <span class="dot" onclick="currentSlide(4)"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1502,7 +1678,7 @@
         <div class="container">
             <div class="progress-container">
                 <h2>Progreso de la Campaña</h2>
-                <p>Meta: USD 17,712 (dos procesadores Nucleus 8 de Cochlear)</p>
+                <p>Meta: USD 17,712 (dos procesadores de sonido)</p>
                 <p style="font-size: 1.1rem; color: #666; margin-top: 0.5rem;">Primera meta: USD 8,856 antes del 1 de septiembre de 2025</p>
                 
                 <div class="progress-bar">
@@ -1594,7 +1770,7 @@
                 
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
-                        <img src="cdn/IMG_0237.HEIC" alt="Situación actual de Noelia" class="timeline-image">
+                        <img src="cdn/IMG_20250703_095914.jpg" alt="Situación actual de Noelia" class="timeline-image">
                     </div>
                     <div class="timeline-content-container">
                         <div class="timeline-year">Junio 2025 - La Situación Actual</div>
@@ -1607,32 +1783,27 @@
             
             <!-- Implant Info -->
             <div class="implant-info">
-                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">¿Qué es un Implante Coclear?</h3>
-                <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
-                    Un implante coclear es un dispositivo médico que transforma los sonidos en señales eléctricas que el cerebro puede interpretar como sonido.
-                </p>
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">Descubriendo el Implante Coclear.</h3>
                 
-                <div class="implant-grid">
-                    <div class="implant-item">
-                        <i class="fas fa-microchip"></i>
-                        <h3>Parte Interna</h3>
-                        <p>Implante en la cóclea que estimula directamente el nervio auditivo</p>
-                    </div>
-                    <div class="implant-item">
-                        <i class="fas fa-headphones"></i>
-                        <h3>Parte Externa</h3>
-                        <p>Procesador de sonido que captura y convierte las ondas sonoras</p>
-                    </div>
-                    <div class="implant-item">
-                        <i class="fas fa-user-md"></i>
-                        <h3>Rehabilitación Auditiva</h3>
-                        <p>Fonoaudiología continua para desarrollar habilidades de comunicación</p>
-                    </div>
+                <!-- Canva Embed -->
+                <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+                 padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                 border-radius: 8px; will-change: transform;">
+                  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                  </iframe>
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?utm_content=DAGsHnlYbf4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+                       target="_blank" rel="noopener" 
+                       style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; opacity: 0.9; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: all 0.3s ease;">
+                        📖 Descubriendo el Implante Coclear de Noelia
+                    </a>
                 </div>
             </div>
             
             <!-- Deterioro de los Procesadores -->
-            <div class="implant-info" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);">
+            <div class="implant-info" style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.9) 0%, rgba(200, 35, 51, 0.9) 100%), url('cdn/procesador.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
                 <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">⚠️ El Deterioro de los Procesadores</h3>
                 <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
                     Después de 8+ años de uso continuo, los procesadores de Noelia muestran signos críticos de deterioro que comprometen su audición.
@@ -1659,8 +1830,8 @@
                 <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
                     <h4 style="color: white; font-size: 1.3rem; margin-bottom: 1rem;">🚨 Situación Crítica</h4>
                     <p style="color: white; font-size: 1.1rem; line-height: 1.6;">
-                        Los procesadores Nucleus 8 son la única esperanza para que Noelia mantenga su conexión con el mundo sonoro. 
-                        Sin ellos, perdería todo el progreso logrado en estos años y volvería al aislamiento del silencio.
+                        Los procesadores de sonido son la única esperanza para que Noelia mantenga su conexión con el mundo sonoro. 
+                        Tu apoyo es crucial para que ella pueda seguir escuchando a nosotros.
                     </p>
                 </div>
             </div>
@@ -1682,7 +1853,7 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>Donación Directa</h3>
-                    <p>Cualquier monto suma. Tu contribución nos acerca a la meta de USD 17,712 para los dos procesadores Nucleus 8 de Cochlear.</p>
+                    <p>Cualquier monto suma. Tu contribución nos acerca a la meta de USD 17,712 para los dos procesadores de sonido.</p>
                     <button class="cta-button" onclick="openDonationModal()">Donar Ahora</button>
                 </div>
                 
@@ -1701,7 +1872,7 @@
                     </div>
                     <h3>Compartir la Historia</h3>
                     <p>Difundí esta campaña en tus redes sociales. Tu alcance puede llegar a alguien que quiera ayudar.</p>
-                    <a href="#compartir" class="cta-button">Compartir Ahora</a>
+                    <button class="cta-button" onclick="openShareModal()">Compartir Ahora</button>
                 </div>
                 
                 <div class="help-card">
@@ -1710,7 +1881,7 @@
                     </div>
                     <h3>Voluntariado</h3>
                     <p>Unite como voluntario para ayudar con la organización, difusión o eventos solidarios.</p>
-                    <a href="#voluntario" class="cta-button">Ser Voluntario</a>
+                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20me%20gustar%C3%ADa%20ser%20voluntario%20para%20la%20campa%C3%B1a%20de%20Noelia.%20%C2%BFPodr%C3%ADas%20contarme%20c%C3%B3mo%20puedo%20ayudar?" class="cta-button">Ser Voluntario</a>
                 </div>
                 
                 <div class="help-card">
@@ -1728,7 +1899,7 @@
                     </div>
                     <h3>Donador Ángel</h3>
                     <p>¿Podés cubrir una etapa completa? Convertite en un donador ángel y cambiá la vida de Noelia.</p>
-                    <a href="#angel" class="cta-button secondary">Ser Ángel</a>
+                    <button class="cta-button secondary" onclick="openAngelModal()">Ser Ángel</button>
                 </div>
             </div>
         </div>
@@ -1744,7 +1915,7 @@
             </p>
             
             <div class="contact-methods">
-                <a href="https://wa.me/59170844466" class="contact-item">
+                <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" class="contact-item">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
@@ -1768,11 +1939,14 @@
     <footer style="background: #2d3748; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem;">
         <div class="container">
             <p style="margin: 0; font-size: 1rem; opacity: 0.8;">Santa Cruz, Bolivia</p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.6;">
+                Desarrollo por <a href="https://github.com/rockayr" target="_blank" style="color: #ff9a56; text-decoration: none; transition: all 0.3s ease;">https://github.com/rockayr</a>
+            </p>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/59170844466" class="fab" title="Contactar a Ayrton por WhatsApp">
+    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" class="fab" title="Contactar a Ayrton por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1785,11 +1959,116 @@
             
             <div class="modal-header">
                 <h2>💖 ¡Gracias por Ayudar a Noelia!</h2>
-                <p>Tu donación puede cambiar su vida para siempre</p>
+                <p>Tu donación puede cambiar su vida hoy</p>
             </div>
             
             <div class="donation-content" id="donationContent">
                 <!-- Content will be populated by JavaScript based on location -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Angel Modal -->
+    <div class="modal-overlay" id="angelModal">
+        <div class="donation-modal">
+            <button class="modal-close" onclick="closeAngelModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2>⭐ ¡Eres un Ángel para Noelia!</h2>
+                <p>Tu generosidad puede cambiar completamente su vida</p>
+            </div>
+            
+            <div class="donation-content">
+                <p style="color: #d68910; text-align: center; margin-bottom: 1.5rem; font-size: 1rem; font-weight: 600;">
+                    <i class="fas fa-star"></i> Como donador ángel, tu contribución permite cubrir etapas completas del tratamiento de Noelia <i class="fas fa-star"></i>
+                </p>
+                
+                <div class="qr-container">
+                    <div style="text-align: center;">
+                        <img src="cdn/angel.jpeg" alt="QR para donaciones Ángel" class="qr-code">
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20ser%20un%20donador%20angel" 
+                       class="cta-button" 
+                       style="background: linear-gradient(45deg, #f39c12, #e67e22); text-decoration: none; display: inline-block;">
+                        <i class="fab fa-whatsapp"></i>
+                        ¿Quieres cubrir otro monto?
+                    </a>
+                </div>
+                
+                <p style="color: #666; font-size: 0.85rem; margin-top: 1.5rem; text-align: center; font-style: italic;">
+                    "Un ángel es alguien que hace que lo imposible parezca posible" 💛
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="shareModal">
+        <div class="donation-modal">
+            <button class="modal-close" onclick="closeShareModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2>📢 Compartir la Campaña</h2>
+                <p style="color: #d68910; text-align: center; font-size: 1rem; font-weight: 600;">
+                    <i class="fas fa-heart"></i> Comparte esta imagen para ayudar a más personas a conocer la historia de Noelia <i class="fas fa-heart"></i>
+                </p>
+            </div>
+            
+            <div class="donation-content">
+                <div class="share-image-container" style="text-align: center; margin-bottom: 1.5rem;">
+                    <img src="cdn/share.jpg" alt="Imagen para compartir campaña de Noelia" 
+                         style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="share-section">
+                    <div class="share-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem;">
+                        <button class="share-btn" onclick="downloadShareImage()" style="flex: 1; max-width: 200px;">
+                            <i class="fas fa-download"></i>
+                            Descargar
+                        </button>
+                        <button class="share-btn secondary" onclick="shareImage()" style="flex: 1; max-width: 200px;">
+                            <i class="fas fa-share"></i>
+                            Compartir
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                        <strong>Puedes compartir nuestras redes sociales:</strong>
+                    </p>
+                    <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" 
+                           target="_blank" 
+                           class="cta-button" 
+                           style="background: #25d366; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://www.instagram.com/escuchamoscontigonoelia/" 
+                           target="_blank" 
+                           class="cta-button" 
+                           style="background: #e4405f; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://www.tiktok.com/@escuchamoscontigonoelia" 
+                           target="_blank" 
+                           class="cta-button" 
+                           style="background: #000000; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </a>
+                    </div>
+                </div>
+                
+                <p style="color: #888; font-size: 0.85rem; margin-top: 1.5rem; text-align: center; font-style: italic;">
+                    Cada compartir puede cambiar la vida de Noelia. ¡Gracias por ayudar! 💛
+                </p>
             </div>
         </div>
     </div>
@@ -2090,6 +2369,100 @@
             document.body.style.overflow = ''; // Restore scrolling
         }
 
+        // Angel Modal Functions
+        function openAngelModal() {
+            const modal = document.getElementById('angelModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeAngelModal() {
+            const modal = document.getElementById('angelModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Share Modal Functions
+        function openShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeShareModal() {
+            const modal = document.getElementById('shareModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Function to download the share image
+        function downloadShareImage() {
+            const link = document.createElement('a');
+            link.href = 'cdn/share.jpg';
+            link.download = 'compartir-campana-noelia.jpg';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Function to share the image (using Web Share API if available)
+        async function shareImage() {
+            if (navigator.share) {
+                try {
+                    // Try to use Web Share API for mobile devices
+                    await navigator.share({
+                        title: 'Ayuda a Noelia - Campaña de Implante Coclear',
+                        text: 'Conoce la historia de Noelia y cómo puedes ayudarla a recuperar su audición',
+                        url: window.location.href
+                    });
+                } catch (error) {
+                    console.log('Error sharing:', error);
+                    // Fallback to copying link
+                    copyToClipboard();
+                }
+            } else {
+                // Fallback for desktop browsers
+                copyToClipboard();
+            }
+        }
+
+        // Function to copy the campaign link to clipboard
+        function copyToClipboard() {
+            const campaignText = `Conoce la historia de Noelia y cómo puedes ayudarla: ${window.location.href}`;
+            
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(campaignText).then(() => {
+                    alert('¡Enlace copiado al portapapeles! Ya puedes pegarlo donde quieras compartirlo.');
+                }).catch(() => {
+                    // Fallback for older browsers
+                    fallbackCopyToClipboard(campaignText);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyToClipboard(campaignText);
+            }
+        }
+
+        // Fallback function for copying to clipboard
+        function fallbackCopyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                alert('¡Enlace copiado al portapapeles! Ya puedes pegarlo donde quieras compartirlo.');
+            } catch (err) {
+                alert('No se pudo copiar automáticamente. Por favor copia este enlace manualmente: ' + text);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
         // Close modal when clicking outside
         document.getElementById('donationModal').addEventListener('click', function(event) {
             if (event.target === this) {
@@ -2097,10 +2470,26 @@
             }
         });
 
+        // Close angel modal when clicking outside
+        document.getElementById('angelModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeAngelModal();
+            }
+        });
+
+        // Close share modal when clicking outside
+        document.getElementById('shareModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeShareModal();
+            }
+        });
+
         // Close modal with Escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeDonationModal();
+                closeAngelModal();
+                closeShareModal();
             }
         });
 
@@ -2150,7 +2539,7 @@
 
 Noelia necesita nuevos procesadores para sus implantes cocleares. Después de 8+ años de uso, solo tiene 1 procesador funcional.
 
-💰 Meta: USD 17,712 (dos procesadores Nucleus 8)
+💰 Meta: USD 17,712 (dos procesadores de sonido)
 📅 Primera meta: USD 8,856 antes del 1 de septiembre de 2025
 
 Visita: ${window.location.href}
