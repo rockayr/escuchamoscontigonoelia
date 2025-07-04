@@ -357,16 +357,17 @@
 
         .hero-video-container {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 2rem;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            min-height: 400px;
+            min-height: 350px;
+            overflow: hidden;
         }
 
         .hero-content-right {
@@ -405,12 +406,14 @@
 
         /* TikTok embed styles */
         .tiktok-embed {
-            border-radius: 15px !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
             transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
             overflow: hidden !important;
             background: white !important;
+            width: 100% !important;
+            max-width: 100% !important;
         }
 
         .tiktok-embed:hover {
@@ -996,6 +999,26 @@
             .logo {
                 font-size: 1rem;
             }
+            
+            /* Hero optimizations for tablet */
+            .hero-content-layout {
+                gap: 3rem;
+            }
+            
+            .hero-video-container {
+                display: block; /* Mostrar video de TikTok en tablet */
+                padding: 1rem;
+                min-height: 300px;
+                border-radius: 16px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            }
+            
+            .tiktok-embed {
+                max-width: 100% !important;
+                min-width: 100% !important;
+                border-radius: 10px !important;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1055,18 +1078,13 @@
             /* Hero Content Layout Mobile */
             .hero-content-layout {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
-                margin: 1rem auto 2rem;
+                gap: 1.5rem;
+                margin: 0.5rem auto 1.5rem;
                 align-items: flex-start;
             }
             
             .hero-video-container {
-                min-width: auto;
-                width: 100%;
-                max-width: 500px;
-                margin: 0 auto;
-                min-height: 300px;
-                padding: 1.5rem;
+                display: none; /* Ocultar video de TikTok en dispositivos móviles */
             }
             
             .hero-titles {
@@ -1082,9 +1100,13 @@
                 font-size: 1.3rem;
             }
             
-            .tiktok-embed {
+            .instagram-media {
                 max-width: 100% !important;
-                min-width: 280px !important;
+                min-width: 100% !important;
+                height: auto !important;
+                border-radius: 8px !important;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+                border: none !important;
             }
             
             .hero-video {
@@ -1324,18 +1346,32 @@
         }
 
         .qr-code {
-            max-width: 200px;
+            max-width: 100%;
             width: 100%;
             height: auto;
-            border-radius: 10px;
+            max-height: 300px;
+            aspect-ratio: 1;
+            border-radius: 8px;
             margin-bottom: 1rem;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.02);
         }
 
         .qr-placeholder {
-            width: 200px;
-            height: 200px;
+            max-width: 100%;
+            width: 100%;
+            max-height: 300px;
+            aspect-ratio: 1;
             background: linear-gradient(135deg, #ff9a56, #ff6b35);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1344,6 +1380,12 @@
             font-weight: bold;
             margin: 0 auto 1rem;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-placeholder:hover {
+            transform: scale(1.02);
         }
 
         .qr-instructions {
@@ -1508,8 +1550,20 @@
             
             .qr-placeholder,
             .qr-code {
-                width: 150px;
-                height: 150px;
+                max-width: 100%;
+                width: 100%;
+                height: auto;
+                max-height: 250px;
+                aspect-ratio: 1;
+                margin-left: auto;
+                margin-right: auto;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            
+            .qr-placeholder {
+                font-size: 1rem;
             }
             
             .bolivia-header h3 {
@@ -1650,6 +1704,12 @@
                 
                 <div class="hero-countdown">
                     <h3>Cuenta regresiva hasta el 1 de septiembre de 2025</h3>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; margin-bottom: 1.5rem; text-align: center;">
+                        <i class="fas fa-heart" style="color: #ff9a56;"></i> 
+                        El 1 de septiembre de 2016, Noelia escuchó por primera vez. 
+                        Queremos que para esa fecha especial de 2025 tenga su nuevo procesador.
+                        <i class="fas fa-heart" style="color: #ff9a56;"></i>
+                    </p>
                     <div class="hero-countdown-timer">
                         <div class="hero-countdown-item">
                             <span class="hero-countdown-number" id="heroDays">--</span>
@@ -1680,6 +1740,12 @@
                 <h2>Progreso de la Campaña</h2>
                 <p>Meta: USD 17,712 (dos procesadores de sonido)</p>
                 <p style="font-size: 1.1rem; color: #666; margin-top: 0.5rem;">Primera meta: USD 8,856 antes del 1 de septiembre de 2025</p>
+                <div style="background: rgba(255, 154, 86, 0.1); border-radius: 10px; padding: 1rem; margin: 1rem 0; border-left: 4px solid #ff9a56;">
+                    <p style="color: #ff6b35; font-weight: 600; margin: 0; font-size: 1rem;">
+                        <i class="fas fa-calendar-heart" style="margin-right: 0.5rem;"></i>
+                        ¿Por qué el 1 de septiembre? El 1 de septiembre de 2016, Noelia escuchó por primera vez gracias a sus implantes cocleares. Queremos que para esa fecha especial de 2025 pueda tener su nuevo procesador.
+                    </p>
+                </div>
                 
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
@@ -1687,15 +1753,15 @@
                 
                 <div class="progress-stats">
                     <div class="stat">
-                        <div class="stat-number">USD 2,657</div>
+                        <div class="stat-number">USD 886</div>
                         <div class="stat-label">Recaudado</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">15%</div>
+                        <div class="stat-number">5%</div>
                         <div class="stat-label">Completado</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">USD 15,055</div>
+                        <div class="stat-number">USD 16,826</div>
                         <div class="stat-label">Restante</div>
                     </div>
                 </div>
@@ -1739,7 +1805,7 @@
                     <div class="timeline-content-container">
                         <div class="timeline-year">1 Septiembre 2016 - El Encendido</div>
                         <div class="timeline-content">
-                            El encendido fue exitoso. Noelia escuchó por primera vez y comenzó su proceso de adaptación al mundo sonoro. Para nosotros, esta fecha se convirtió en su segundo cumpleaños, una celebración familiar que nunca olvidaremos. Ver su rostro cuando escuchó nuestras voces fue indescriptible.
+                            El encendido fue exitoso. Noelia escuchó por primera vez y comenzó su proceso de adaptación al mundo sonoro. Para nosotros, esta fecha se convirtió en su segundo cumpleaños, una celebración familiar que nunca olvidaremos. Ver su rostro cuando escuchó nuestras voces fue indescriptible. Por eso elegimos el 1 de septiembre de 2025 como nuestra meta especial.
                         </div>
                     </div>
                 </div>
@@ -1919,7 +1985,7 @@
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
-                <a href="mailto:info@escuchamoscontigonoelia.com" class="contact-item">
+                <a href="mailto:ayrton.argani@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>Email</span>
                 </a>
@@ -1939,8 +2005,12 @@
     <footer style="background: #2d3748; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem;">
         <div class="container">
             <p style="margin: 0; font-size: 1rem; opacity: 0.8;">Santa Cruz, Bolivia</p>
-            <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.6;">
-                Desarrollo por <a href="https://github.com/rockayr" target="_blank" style="color: #ff9a56; text-decoration: none; transition: all 0.3s ease;">https://github.com/rockayr</a>
+            <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; opacity: 0.7; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                © Todos los derechos reservados 
+                <a href="https://github.com/rockayr" target="_blank" rel="noopener noreferrer" 
+                   style="color: #ff9a56; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 600;">
+                    <i class="fab fa-github" style="font-size: 1rem;"></i>@rockayr
+                </a>
             </p>
         </div>
     </footer>
@@ -2226,7 +2296,7 @@
         // Progress bar animation
         function animateProgressBar() {
             const progressFill = document.querySelector('.progress-fill');
-            const targetWidth = 15; // 15% progress
+            const targetWidth = 5; // 5% progress
             let currentWidth = 0;
             
             const animation = setInterval(() => {
