@@ -1,4 +1,8 @@
-// Countdown Timer
+// ==================================================
+// ============ FUNCIONES ORIGINALES ================
+// ==================================================
+
+// Countdown Timer Original
 function updateCountdown() {
     const targetDate = new Date('September 1, 2025 00:00:00').getTime();
     const now = new Date().getTime();
@@ -39,9 +43,7 @@ function handleScroll() {
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const toggleBtn = document.querySelector('.mobile-menu-toggle i');
-    
     mobileMenu.classList.toggle('active');
-    
     if (mobileMenu.classList.contains('active')) {
         toggleBtn.className = 'fas fa-times';
     } else {
@@ -52,7 +54,6 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const toggleBtn = document.querySelector('.mobile-menu-toggle i');
-    
     mobileMenu.classList.remove('active');
     toggleBtn.className = 'fas fa-bars';
 }
@@ -65,10 +66,7 @@ function setupSmoothScrolling() {
             const targetId = this.getAttribute('href');
             const target = document.querySelector(targetId);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
@@ -76,11 +74,7 @@ function setupSmoothScrolling() {
 
 // Add fade-in animation on scroll
 function setupScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -89,7 +83,6 @@ function setupScrollAnimations() {
             }
         });
     }, observerOptions);
-
     document.querySelectorAll('.timeline-item, .help-card').forEach(el => {
         observer.observe(el);
     });
@@ -99,25 +92,22 @@ function setupScrollAnimations() {
 function setupProgressBarAnimation() {
     const progressSection = document.querySelector('.progress-section');
     if (!progressSection) return;
-
     const progressObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const progressFill = document.querySelector('.progress-fill');
                 if(progressFill) {
-                    progressFill.style.width = '10%'; // Set to the desired percentage
+                    progressFill.style.width = '10%';
                 }
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
-
     progressObserver.observe(progressSection);
 }
 
 // Donation Modal Functionality
 let userCountry = null;
-
 async function detectUserCountry() {
     try {
         const response = await fetch('https://ipapi.co/json/');
@@ -134,11 +124,9 @@ async function detectUserCountry() {
 async function openDonationModal() {
     const modal = document.getElementById('donationModal');
     const content = document.getElementById('donationContent');
-    
     if (!userCountry) {
         await detectUserCountry();
     }
-    
     if (userCountry === 'BO') {
         content.innerHTML = `
             <div class="bolivia-header"><h3>💳 Donaciones en Bolivia</h3></div>
@@ -164,7 +152,6 @@ async function openDonationModal() {
             </div>
         `;
     }
-    
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -174,7 +161,6 @@ function closeModal(modalId) {
     if (modal) {
         modal.classList.remove('active');
     }
-    // Only restore scroll if no other modals are active
     if (!document.querySelector('.modal-overlay.active')) {
         document.body.style.overflow = '';
     }
@@ -221,69 +207,184 @@ function downloadQR() {
     }
 }
 
-// Event Listeners Setup
+// ==================================================
+// ============ LÓGICA DE LA GRAN RIFA ============== 
+// ==================================================
+
+function openRaffleModal() {
+    const modal = document.getElementById('raffleModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeRaffleModal() {
+    const modal = document.getElementById('raffleModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
+    if (!document.querySelector('.modal-overlay.active')) {
+        document.body.style.overflow = '';
+    }
+}
+
+function updateRaffleCountdown() {
+    const targetDate = new Date('September 21, 2025 00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const rifaDays = document.getElementById('rifaDays');
+    const rifaHours = document.getElementById('rifaHours');
+    const rifaMinutes = document.getElementById('rifaMinutes');
+    const rifaSeconds = document.getElementById('rifaSeconds');
+    if (rifaDays) rifaDays.textContent = days;
+    if (rifaHours) rifaHours.textContent = hours;
+    if (rifaMinutes) rifaMinutes.textContent = minutes;
+    if (rifaSeconds) rifaSeconds.textContent = seconds;
+    if (distance < 0) {
+        if (rifaDays) rifaDays.textContent = '0';
+        if (rifaHours) rifaHours.textContent = '0';
+        if (rifaMinutes) rifaMinutes.textContent = '0';
+        if (rifaSeconds) rifaSeconds.textContent = '0';
+    }
+}
+
+function updateRaffleProgress() {
+    const ticketsVendidos = 50;
+    const totalTickets = 2109;
+    const progressBar = document.getElementById('rifaProgressBar');
+    if (progressBar) {
+        const percentage = (ticketsVendidos / totalTickets) * 100;
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                progressBar.style.width = percentage + '%';
+                observer.disconnect();
+            }
+        }, { threshold: 0.5 });
+        const rifaSection = document.getElementById('rifa');
+        if (rifaSection) {
+            observer.observe(rifaSection);
+        }
+    }
+}
+
+// ==================================================
+// ============ INICIALIZACIÓN GENERAL ==============
+// ==================================================
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Countdown
+    // --- Lógica Original ---
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
-    // Setup UI behaviors
     setupSmoothScrolling();
     setupScrollAnimations();
     setupProgressBarAnimation();
+    detectUserCountry();
 
-    // Setup Modals
+    // --- Lógica de la Rifa ---
+    updateRaffleProgress();
+    updateRaffleCountdown();
+    setInterval(updateRaffleCountdown, 1000);
+
+    // --- Lógica del Banner Fijo ---
+    handleStickyBannerVisibility();
+
+    // --- Manejo de Modales ---
+    // Listener para botones que abren modales (excepto el de la rifa, que tiene su propio onclick)
     document.querySelectorAll('[onclick^="open"]').forEach(btn => {
-        const modalName = btn.getAttribute('onclick').replace('open','').replace('Modal()','').toLowerCase();
-        const modalId = modalName + 'Modal';
-        btn.addEventListener('click', () => {
-            const modal = document.getElementById(modalId);
-            if(modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+        const onclickAttr = btn.getAttribute('onclick');
+        if (onclickAttr !== 'openRaffleModal()') {
+            btn.addEventListener('click', () => {
+                const modalName = onclickAttr.replace('open','').replace('Modal()','').toLowerCase();
+                const modal = document.getElementById(modalName + 'Modal');
+                if(modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        }
     });
 
+    // Listeners para cerrar todos los modales
     document.querySelectorAll('.modal-overlay').forEach(modal => {
         modal.addEventListener('click', function(event) {
             if (event.target === this) {
-                closeModal(this.id);
+                if (this.id === 'raffleModal') {
+                    closeRaffleModal();
+                } else {
+                    closeModal(this.id);
+                }
             }
         });
-        modal.querySelector('.modal-close').addEventListener('click', () => closeModal(modal.id));
+        const closeBtn = modal.querySelector('.modal-close');
+        if(closeBtn) {
+            const closeFn = modal.id === 'raffleModal' ? closeRaffleModal : () => closeModal(modal.id);
+            closeBtn.addEventListener('click', closeFn);
+        }
     });
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-            document.querySelectorAll('.modal-overlay.active').forEach(modal => closeModal(modal.id));
+            document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+                if (modal.id === 'raffleModal') {
+                    closeRaffleModal();
+                } else {
+                    closeModal(modal.id);
+                }
+            });
         }
     });
 
-    // Pre-detect user country
-    detectUserCountry();
+    // --- Inicialización de Librerías ---
+    // Swiper (si existe el elemento)
+    if (document.querySelector('.swiper')) {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    }
 
-    // Initialize Swiper
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-    // Initialize GLightbox
+    // GLightbox
     const lightbox = GLightbox({
         selector: '.glightbox',
         touchNavigation: true,
         loop: false,
     });
 });
+
+// ==================================================
+// ============ STICKY RAFFLE BANNER LOGIC ==========
+// ==================================================
+function handleStickyBannerVisibility() {
+    const banner = document.getElementById('sticky-raffle-banner');
+    const progresoSection = document.getElementById('progreso');
+
+    if (!banner || !progresoSection) {
+        return; // Exit if elements are not found
+    }
+
+    const scrollHandler = () => {
+        const scrollPosition = window.scrollY;
+        const progresoTop = progresoSection.offsetTop;
+
+        // Show the banner from the top of the page until the user scrolls past the 'progreso' section.
+        if (scrollPosition < progresoTop) {
+            banner.classList.add('visible');
+        } else {
+            banner.classList.remove('visible');
+        }
+    };
+
+    // Make the banner visible on initial load with a slight delay for the animation to be noticeable.
+    setTimeout(() => {
+        scrollHandler();
+    }, 100); // A very short delay
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+}

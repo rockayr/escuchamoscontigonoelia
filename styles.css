@@ -232,16 +232,14 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
     color: white;
-    padding: 120px 0 60px;
-    text-align: center;
+    padding: 60px 20px;
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 80px);
+    min-height: 100vh;
     display: flex;
-    align-items: flex-start;
-    padding-top: 140px;
+    align-items: flex-end;
+    justify-content: flex-start;
 }
 
 .hero-countdown {
@@ -1420,4 +1418,386 @@ footer p {
     margin: 0;
     font-size: 1rem;
     opacity: 0.8;
+}
+
+/* ================================================== */
+/* ============ ESTILOS DE LA GRAN RIFA ============= */
+/* ================================================== */
+
+/* Estilo general de la sección */
+#rifa {
+    background-color: #f8fafc; /* Un fondo sutil para diferenciarla */
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Anuncio de Transparencia */
+.anuncio-transparencia {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 154, 86, 0.1);
+    border-left: 5px solid #ff6b35;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0;
+}
+.anuncio-transparencia .fa-bullhorn {
+    font-size: 2rem;
+    color: #ff6b35;
+}
+.anuncio-transparencia p {
+    margin: 0;
+    color: #4a5568;
+}
+.anuncio-transparencia p strong {
+    color: #2d3748;
+}
+
+/* Corazón de la Rifa (Contenedor de Progreso y Contador) */
+.rifa-corazon {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    margin: 3rem 0;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+}
+
+/* Progreso de la Rifa */
+.rifa-progreso h3, .rifa-contador h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+.rifa-progreso p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+.progress-bar-rifa {
+    background: #e2e8f0;
+    border-radius: 25px;
+    height: 25px;
+    overflow: hidden;
+}
+.progress-fill-rifa {
+    background: linear-gradient(45deg, #1dd1a1, #10ac84); /* Un verde esperanza */
+    height: 100%;
+    width: 0%; /* Se actualizará con JS */
+    border-radius: 25px;
+    transition: width 1s ease-out;
+}
+.progress-stats-rifa {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    color: #10ac84;
+    font-size: 1.1rem;
+}
+
+/* Reconocimiento a la Comunidad */
+.rifa-comunidad {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 154, 86, 0.05) 0%, rgba(255, 107, 53, 0.08) 100%);
+    border-radius: 20px;
+}
+.rifa-comunidad h3 {
+    font-size: 1.8rem;
+    color: #2d3748;
+}
+.rifa-comunidad img {
+    max-width: 250px;
+    height: auto;
+    margin: 1rem auto;
+    transition: transform 0.3s ease;
+}
+.rifa-comunidad img:hover {
+    transform: scale(1.05);
+}
+.rifa-comunidad p {
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    color: #4a5568;
+    font-style: italic;
+}
+
+/* Galería de Premios */
+.rifa-galeria-premios {
+    margin: 3rem 0;
+}
+.rifa-galeria-premios h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+}
+.premios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.premio-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+.premio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border-color: #ff9a56;
+}
+.premio-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff9a56, #ff6b35);
+    color: white;
+    font-size: 1.8rem;
+}
+.premio-info h4 {
+    margin: 0 0 0.25rem 0;
+    color: #2d3748;
+    font-size: 1.1rem;
+}
+.premio-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Llamado a la Acción Final */
+.rifa-cta {
+    text-align: center;
+    margin-top: 3rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+}
+.rifa-cta h3 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+}
+
+/* Modal de la Rifa */
+#raffleModal .qr-container {
+    border-style: solid;
+}
+#raffleModal hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 1.5rem 0;
+}
+#raffleModal h4 {
+    font-size: 1.2rem;
+    color: #ff6b35;
+    margin-bottom: 0.5rem;
+}
+
+/* === Media Queries para Móviles === */
+@media (max-width: 768px) {
+    .rifa-corazon {
+        grid-template-columns: 1fr; /* Se apilan en móvil */
+    }
+    .rifa-progreso {
+        margin-bottom: 2rem;
+    }
+}
+/* Fix para la visibilidad del contador de la rifa */
+.rifa-contador .hero-countdown-number,
+.rifa-contador .hero-countdown-label {
+    color: #2d3748; /* Un color oscuro para el texto */
+}
+
+.rifa-contador .hero-countdown-item {
+    background: rgba(0, 0, 0, 0.05); /* Un fondo sutil para cada caja */
+}
+
+/* New Hero Content Styles */
+.hero-text-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-text-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .hero-text-content h2 {
+        font-size: 2rem;
+    }
+    .hero-text-content p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Sticky Raffle Banner */
+.sticky-raffle-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(45, 55, 72, 0.95);
+    color: white;
+    padding: 1rem 0;
+    z-index: 1002; /* Above header but below modals */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.sticky-raffle-banner.visible {
+    transform: translateY(0);
+}
+
+.sticky-raffle-banner .banner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sticky-raffle-banner p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.sticky-raffle-banner .cta-button.small-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.sticky-raffle-banner.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sticky-raffle-banner .banner-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    .sticky-raffle-banner p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Hero Background Slider */
+.hero-background-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #ff6b35; /* Fallback color */
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: heroFade 28s infinite;
+    transform: scale(1.1); /* Ken Burns effect start */
+}
+
+.hero::after { /* Dark overlay for text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero .container {
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+/* Animation timing for 4 images */
+.hero-bg-image:nth-child(1) { animation-delay: 0s; }
+.hero-bg-image:nth-child(2) { animation-delay: 7s; }
+.hero-bg-image:nth-child(3) { animation-delay: 14s; }
+.hero-bg-image:nth-child(4) { animation-delay: 21s; }
+
+@keyframes heroFade {
+    0% { opacity: 0; transform: scale(1.1); }
+    10% { opacity: 1; } /* Fade in */
+    25% { opacity: 1; transform: scale(1); } /* Hold and zoom out */
+    35% { opacity: 0; } /* Fade out */
+    100% { opacity: 0; }
+}
+
+/* Hero Text adjustments */
+.hero-text-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-text-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.9;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Replace h2 styles with h1 */
+.hero-text-content h2 { display: none; }
+
+.hero-content {
+    width: 100%;
+}
+
+.hero-text-content {
+    text-align: left;
+    max-width: 700px;
 }
