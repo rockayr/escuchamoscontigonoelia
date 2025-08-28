@@ -1502,31 +1502,44 @@ footer p {
 /* Reconocimiento a la Comunidad */
 .rifa-comunidad {
     text-align: center;
-    margin: 3rem 0;
-    padding: 2rem;
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://jopoi.com.bo/wp-content/uploads/2024/08/mision-scaled.webp');
+    margin: 0; /* Removed margin */
+    padding: 4rem 2rem; /* Adjusted padding */
+    position: relative; /* To contain absolute children */
+    overflow: hidden; /* To clip background */
+    border-radius: 0; /* Removed border-radius */
+}
+
+.rifa-comunidad::after { /* Gradient overlay */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.rifa-comunidad-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://jopoi.com.bo/wp-content/uploads/2024/08/mision-scaled.webp');
     background-size: cover;
     background-position: center;
-    border-radius: 20px;
+    z-index: 0;
 }
-.rifa-comunidad h3 {
-    font-size: 1.8rem;
-    color: #2d3748;
+
+.rifa-comunidad-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above overlay */
+    color: white; /* Default text color for content */
 }
-.rifa-comunidad img {
-    max-width: 250px;
-    height: auto;
-    margin: 1rem auto;
-    transition: transform 0.3s ease;
-}
-.rifa-comunidad img:hover {
-    transform: scale(1.05);
-}
-.rifa-comunidad p {
-    max-width: 600px;
-    margin: 0.5rem auto 0;
-    color: #4a5568;
-    font-style: italic;
+
+.rifa-comunidad-content h3, .rifa-comunidad-content p {
+    color: white; /* Ensure specific elements are white */
 }
 
 /* Galería de Premios */
@@ -1636,11 +1649,7 @@ footer p {
 .hero-text-content {
     max-width: 800px;
     margin: 0 auto;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Removed background, padding, border-radius, backdrop-filter, border */
 }
 
 .hero-text-content h2 {
@@ -1664,6 +1673,13 @@ footer p {
     }
     .hero-text-content p {
         font-size: 1.1rem;
+    }
+    /* Added for mobile centering */
+    .hero {
+        justify-content: center;
+    }
+    .hero-text-content {
+        text-align: center;
     }
 }
 
@@ -1751,7 +1767,7 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 60%);
     z-index: 1;
 }
 
