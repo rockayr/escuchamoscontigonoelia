@@ -97,7 +97,7 @@ function setupProgressBarAnimation() {
             if (entry.isIntersecting) {
                 const progressFill = document.querySelector('.progress-fill');
                 if(progressFill) {
-                    progressFill.style.width = '10%';
+                    progressFill.style.width = '15%';
                 }
                 observer.unobserve(entry.target);
             }
@@ -130,7 +130,7 @@ async function openDonationModal() {
     if (userCountry === 'BO') {
         content.innerHTML = `
             <div class="bolivia-header"><h3>💳 Donaciones en Bolivia</h3></div>
-            <div class="qr-container"><div id="qrCodeContainer"><img src="cdn/qr.jpeg" alt="Código QR para donaciones" class="qr-code"></div></div>
+            <img src="cdn/qr.png" alt="Código QR para donaciones" class="qr-code">
             <div class="share-section">
                 <p style="text-align: center; margin-bottom: 1rem; color: #666; font-weight: 600;"><i class="fas fa-share-alt"></i> Compartir QR</p>
                 <div class="share-buttons">
@@ -273,6 +273,75 @@ function updateRaffleProgress() {
 }
 
 // ==================================================
+// ============ QR LIGHTBOX LOGIC ===================
+// ==================================================
+function initializeQrLightbox() {
+    const lightbox = document.getElementById('qrLightbox');
+    if (!lightbox) return;
+
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxDownload = document.getElementById('lightboxDownload');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+
+    const openLightbox = (imgSrc) => {
+        lightboxImg.src = imgSrc;
+        lightboxDownload.href = imgSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    // Use event delegation on the body to handle clicks on current and future .qr-code images
+    document.body.addEventListener('click', (event) => {
+        if (event.target.classList.contains('qr-code')) {
+            openLightbox(event.target.src);
+        }
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+}
+
+// ==================================================
+// ============ STICKY RAFFLE BANNER LOGIC ==========
+// ==================================================
+function handleStickyBannerVisibility() {
+    const banner = document.getElementById('sticky-raffle-banner');
+    const progresoSection = document.getElementById('progreso');
+
+    if (!banner || !progresoSection) {
+        return; // Exit if elements are not found
+    }
+
+    const scrollHandler = () => {
+        const scrollPosition = window.scrollY;
+        const progresoTop = progresoSection.offsetTop;
+
+        // Show the banner from the top of the page until the user scrolls past the 'progreso' section.
+        if (scrollPosition < progresoTop) {
+            banner.classList.add('visible');
+        } else {
+            banner.classList.remove('visible');
+        }
+    };
+
+    // Make the banner visible on initial load with a slight delay for the animation to be noticeable.
+    setTimeout(() => {
+        scrollHandler();
+    }, 100); // A very short delay
+
+    window.addEventListener('scroll', scrollHandler, { passive: true });
+}
+
+// ==================================================
 // ============ INICIALIZACIÓN GENERAL ==============
 // ==================================================
 
@@ -356,35 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         touchNavigation: true,
         loop: false,
     });
+
+    // --- Inicialización del Lightbox para QR ---
+    initializeQrLightbox();
 });
-
-// ==================================================
-// ============ STICKY RAFFLE BANNER LOGIC ==========
-// ==================================================
-function handleStickyBannerVisibility() {
-    const banner = document.getElementById('sticky-raffle-banner');
-    const progresoSection = document.getElementById('progreso');
-
-    if (!banner || !progresoSection) {
-        return; // Exit if elements are not found
-    }
-
-    const scrollHandler = () => {
-        const scrollPosition = window.scrollY;
-        const progresoTop = progresoSection.offsetTop;
-
-        // Show the banner from the top of the page until the user scrolls past the 'progreso' section.
-        if (scrollPosition < progresoTop) {
-            banner.classList.add('visible');
-        } else {
-            banner.classList.remove('visible');
-        }
-    };
-
-    // Make the banner visible on initial load with a slight delay for the animation to be noticeable.
-    setTimeout(() => {
-        scrollHandler();
-    }, 100); // A very short delay
-
-    window.addEventListener('scroll', scrollHandler, { passive: true });
-}

@@ -1160,32 +1160,21 @@ nav {
     text-align: center;
 }
 
-.qr-container {
-    background: #f8f9fa;
-    border-radius: 15px;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    border: 2px dashed #ff9a56;
-}
-
 .qr-code {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    aspect-ratio: 1;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    object-fit: contain;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 1.5rem auto;
+    max-width: 320px;
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 15px;
     transition: transform 0.3s ease;
+    object-fit: contain;
+    cursor: pointer;
 }
 
 .qr-code:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .qr-placeholder {
@@ -1819,4 +1808,67 @@ footer p {
 .hero-text-content {
     text-align: left;
     max-width: 700px;
+}
+
+/* Lightbox Modal Styles */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    animation: slideUp 0.4s;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.lightbox-download-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 12px 20px;
+    background: #ff6b35;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.lightbox-download-btn:hover {
+    background-color: #ff9a56;
 }

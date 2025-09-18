@@ -85,7 +85,7 @@
                 <i class="fas fa-bullhorn"></i>
                 <div>
                     <p><strong>¡Aviso Importante Sobre la Fecha del Sorteo!</strong></p>
-                    <p>Para dar a más corazones la oportunidad de unirse, la nueva fecha oficial es el <strong>sábado 21 de septiembre de 2025</strong>. ¡No te quedes sin tu ticket! Todos los números adquiridos son válidos para el gran día.</p>
+                    <p>Para dar a más corazones la oportunidad de unirse, la nueva fecha oficial es el <strong>domingo 21 de septiembre de 2025</strong>. ¡No te quedes sin tu ticket! Todos los números adquiridos son válidos para el gran día.</p>
                 </div>
             </div>
             
@@ -239,15 +239,15 @@
                 
                 <div class="progress-stats">
                     <div class="stat">
-                        <div class="stat-number">USD 1,731</div>
+                        <div class="stat-number">USD 2,586</div>
                         <div class="stat-label">Recaudado</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">10%</div>
+                        <div class="stat-number">15%</div>
                         <div class="stat-label">Completado</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">USD 15,981</div>
+                        <div class="stat-number">USD 15,126</div>
                         <div class="stat-label">Restante</div>
                     </div>
                 </div>
@@ -303,7 +303,7 @@
                     <div class="timeline-content-container">
                         <div class="timeline-year">2016-2024 - Creciendo Juntos</div>
                         <div class="timeline-content">
-                            Con acceso al lenguaje oral y escolarización regular en Jopoi, Noelia ha requerido apoyo constante: terapia fonoaudiológica, apoyo psicopedagógico y maestra integradora. Como familia, invertimos 70% de nuestros ingresos en sus necesidades, pero cada sacrificio vale la pena al verla crecer y desarrollarse.
+                            Con acceso al lenguaje oral y escolarización regular en Jopoi, Noelia ha requerido apoyo constante: terapia fonoaudiológica, apoyo psicopedagógico y maestra integradora. Como familia nos sentimos orgullosos de Noelia y de su voluntad para superar su brecha de comunicación.
                         </div>
                     </div>
                 </div>
@@ -327,7 +327,7 @@
                     <div class="timeline-content-container">
                         <div class="timeline-year">Junio 2025 - La Situación Actual</div>
                         <div class="timeline-content">
-                            "Papá, no puedo escuchar" - esas palabras me rompieron el corazón. Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Si falla, su mundo vuelve al silencio. El 14 de junio decidí hacer pública nuestra situación y pedir ayuda. No podemos permitir que Noelia vuelva al silencio.
+                            "Papá, no puedo escuchar" - esas palabras me rompieron el corazón. Después de 8+ años de uso constante, solo tiene 1 procesador funcional. Si falla, su mundo vuelve al silencio. El 14 de junio decidimos crear este proyecto y elevar la voz de Noelia para que más personas conozcan su vida. No podemos permitir que Noelia vuelva al silencio.
                         </div>
                     </div>
                 </div>
@@ -541,11 +541,7 @@
                     <i class="fas fa-star"></i> Como donador ángel, tu contribución permite cubrir etapas completas del tratamiento de Noelia <i class="fas fa-star"></i>
                 </p>
                 
-                <div class="qr-container">
-                    <div style="text-align: center;">
-                        <img src="cdn/angel.jpeg" alt="QR para donaciones Ángel" class="qr-code">
-                    </div>
-                </div>
+                <img src="cdn/qr.png" alt="QR para donaciones Ángel" class="qr-code">
                 
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20ser%20un%20donador%20angel" 
@@ -646,9 +642,7 @@
         <div class="donation-content">
             <h4>Paso 1: Realiza el pago</h4>
             <p>Escanea el código QR para pagar tus tickets (20 Bs. cada uno).</p>
-            <div class="qr-container" style="margin-top: 1rem; margin-bottom: 1rem;">
-                <img src="cdn/qr_rifa.jpeg" alt="Código QR para la Rifa" class="qr-code">
-            </div>
+            <img src="cdn/qr.png" alt="Código QR para la Rifa" class="qr-code">
 
             <hr style="border: none; border-top: 1px solid #eee; margin: 1.5rem 0;">
 
@@ -678,5 +672,14 @@
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <!-- Your Custom Script -->
     <script src="scripts.js"></script>
+
+    <!-- QR Code Lightbox Modal -->
+    <div id="qrLightbox" class="lightbox-overlay">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <a id="lightboxDownload" href="#" download="qr_donacion_noelia.png" class="lightbox-download-btn">
+            <i class="fas fa-download"></i> Descargar QR
+        </a>
+    </div>
 </body>
-</html>tml>
+</html>
