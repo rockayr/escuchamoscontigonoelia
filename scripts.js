@@ -140,7 +140,7 @@ async function openDonationModal() {
             </div>
             <p style="color: #666; font-size: 0.9rem; margin-top: 1.5rem; text-align: center;">
                 <strong>Otras opciones:</strong> Transferencia o depósito.<br>
-                <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20necesito%20informaci%C3%B3n%20sobre%20otras%20formas%20de%20donar%20para%20Noelia" style="color: #ff6b35; text-decoration: none;">Contáctame y hablamos</a>
+                <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20necesito%20informaci%C3%B3n%20sobre%20otras%20formas%20de%20donar%20para%20Noelia" style="color: #ff6b35; text-decoration: none;">Contáctame para coordinar</a>
             </p>
         `;
     } else {
