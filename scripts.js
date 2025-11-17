@@ -97,7 +97,7 @@ function setupProgressBarAnimation() {
             if (entry.isIntersecting) {
                 const progressFill = document.querySelector('.progress-fill');
                 if(progressFill) {
-                    progressFill.style.width = '15%';
+                    progressFill.style.width = '15.1%';
                 }
                 observer.unobserve(entry.target);
             }
@@ -230,7 +230,7 @@ function closeRaffleModal() {
 }
 
 function updateRaffleCountdown() {
-    const targetDate = new Date('November 22, 2025 00:00:00').getTime();
+    const targetDate = new Date('November 22, 2025 12:00:00').getTime();
     const now = new Date().getTime();
     const distance = targetDate - now;
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
