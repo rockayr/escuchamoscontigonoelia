@@ -97,7 +97,7 @@ function setupProgressBarAnimation() {
             if (entry.isIntersecting) {
                 const progressFill = document.querySelector('.progress-fill');
                 if(progressFill) {
-                    progressFill.style.width = '15.1%';
+                    progressFill.style.width = '23.66%';
                 }
                 observer.unobserve(entry.target);
             }
@@ -208,9 +208,9 @@ function downloadQR() {
 }
 
 // ==================================================
-// ============ LÓGICA DE LA GRAN RIFA ============== 
+// ============ LÓGICA DE LA GRAN RIFA (Deshabilitada) ============== 
 // ==================================================
-
+/*
 function openRaffleModal() {
     const modal = document.getElementById('raffleModal');
     if (modal) {
@@ -271,7 +271,7 @@ function updateRaffleProgress() {
         }
     }
 }
-
+*/
 // ==================================================
 // ============ QR LIGHTBOX LOGIC ===================
 // ==================================================
@@ -310,9 +310,6 @@ function initializeQrLightbox() {
     });
 }
 
-// ==================================================
-// ============ STICKY RAFFLE BANNER LOGIC ==========
-// ==================================================
 function handleStickyBannerVisibility() {
     const banner = document.getElementById('sticky-raffle-banner');
     const progresoSection = document.getElementById('progreso');
@@ -347,17 +344,17 @@ function handleStickyBannerVisibility() {
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica Original ---
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    // updateCountdown();
+    // setInterval(updateCountdown, 1000);
     setupSmoothScrolling();
     setupScrollAnimations();
     setupProgressBarAnimation();
     detectUserCountry();
 
-    // --- Lógica de la Rifa ---
-    updateRaffleProgress();
-    updateRaffleCountdown();
-    setInterval(updateRaffleCountdown, 1000);
+    // --- Lógica de la Rifa (Deshabilitada) ---
+    // updateRaffleProgress();
+    // updateRaffleCountdown();
+    // setInterval(updateRaffleCountdown, 1000);
 
     // --- Lógica del Banner Fijo ---
     handleStickyBannerVisibility();
@@ -366,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Listener para botones que abren modales (excepto el de la rifa, que tiene su propio onclick)
     document.querySelectorAll('[onclick^="open"]').forEach(btn => {
         const onclickAttr = btn.getAttribute('onclick');
-        if (onclickAttr !== 'openRaffleModal()') {
+        if (onclickAttr && onclickAttr !== 'openRaffleModal()') {
             btn.addEventListener('click', () => {
                 const modalName = onclickAttr.replace('open','').replace('Modal()','').toLowerCase();
                 const modal = document.getElementById(modalName + 'Modal');
@@ -382,16 +379,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.modal-overlay').forEach(modal => {
         modal.addEventListener('click', function(event) {
             if (event.target === this) {
-                if (this.id === 'raffleModal') {
-                    closeRaffleModal();
-                } else {
+                // if (this.id === 'raffleModal') {
+                //     closeRaffleModal();
+                // } else {
                     closeModal(this.id);
-                }
+                // }
             }
         });
         const closeBtn = modal.querySelector('.modal-close');
         if(closeBtn) {
-            const closeFn = modal.id === 'raffleModal' ? closeRaffleModal : () => closeModal(modal.id);
+            // const closeFn = modal.id === 'raffleModal' ? closeRaffleModal : () => closeModal(modal.id);
+            const closeFn = () => closeModal(modal.id);
             closeBtn.addEventListener('click', closeFn);
         }
     });
@@ -399,11 +397,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                if (modal.id === 'raffleModal') {
-                    closeRaffleModal();
-                } else {
+                // if (modal.id === 'raffleModal') {
+                //     closeRaffleModal();
+                // } else {
                     closeModal(modal.id);
-                }
+                // }
             });
         }
     });

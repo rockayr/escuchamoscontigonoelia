@@ -1410,17 +1410,15 @@ footer p {
 }
 
 /* ================================================== */
-/* ============ ESTILOS DE LA GRAN RIFA ============= */
+/* ============ ESTILOS DE LA GRAN RIFA (Deshabilitada) ============= */
 /* ================================================== */
 
-/* Estilo general de la sección */
+/*
 #rifa {
-    background-color: #f8fafc; /* Un fondo sutil para diferenciarla */
+    background-color: #f8fafc; 
     border-top: 1px solid #e2e8f0;
     border-bottom: 1px solid #e2e8f0;
 }
-
-/* Anuncio de Transparencia */
 .anuncio-transparencia {
     display: flex;
     align-items: center;
@@ -1444,8 +1442,6 @@ footer p {
 .anuncio-transparencia p strong {
     color: #2d3748;
 }
-
-/* Corazón de la Rifa (Contenedor de Progreso y Contador) */
 .rifa-corazon {
     display: flex;
     flex-direction: column;
@@ -1457,8 +1453,6 @@ footer p {
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.07);
 }
-
-/* Progreso de la Rifa */
 .rifa-progreso h3, .rifa-contador h3 {
     font-size: 1.5rem;
     color: #2d3748;
@@ -1475,9 +1469,9 @@ footer p {
     overflow: hidden;
 }
 .progress-fill-rifa {
-    background: linear-gradient(45deg, #1dd1a1, #10ac84); /* Un verde esperanza */
+    background: linear-gradient(45deg, #1dd1a1, #10ac84);
     height: 100%;
-    width: 0%; /* Se actualizará con JS */
+    width: 0%;
     border-radius: 25px;
     transition: width 1s ease-out;
 }
@@ -1487,18 +1481,15 @@ footer p {
     color: #10ac84;
     font-size: 1.1rem;
 }
-
-/* Reconocimiento a la Comunidad */
 .rifa-comunidad {
     text-align: center;
-    margin: 0; /* Removed margin */
-    padding: 4rem 2rem; /* Adjusted padding */
-    position: relative; /* To contain absolute children */
-    overflow: hidden; /* To clip background */
-    border-radius: 0; /* Removed border-radius */
+    margin: 0;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
 }
-
-.rifa-comunidad::after { /* Gradient overlay */
+.rifa-comunidad::after {
     content: '';
     position: absolute;
     top: 0;
@@ -1508,7 +1499,6 @@ footer p {
     background-image: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, transparent 60%);
     z-index: 1;
 }
-
 .rifa-comunidad-bg {
     position: absolute;
     top: 0;
@@ -1520,18 +1510,14 @@ footer p {
     background-position: center;
     z-index: 0;
 }
-
 .rifa-comunidad-content {
     position: relative;
-    z-index: 2; /* Ensure content is above overlay */
-    color: white; /* Default text color for content */
+    z-index: 2;
+    color: white;
 }
-
 .rifa-comunidad-content h3, .rifa-comunidad-content p {
-    color: white; /* Ensure specific elements are white */
+    color: white;
 }
-
-/* Galería de Premios */
 .rifa-galeria-premios {
     margin: 3rem 0;
 }
@@ -1584,8 +1570,6 @@ footer p {
     color: #666;
     font-size: 0.9rem;
 }
-
-/* Llamado a la Acción Final */
 .rifa-cta {
     text-align: center;
     margin-top: 3rem;
@@ -1599,8 +1583,6 @@ footer p {
     color: #2d3748;
     margin-bottom: 1.5rem;
 }
-
-/* Modal de la Rifa */
 #raffleModal .qr-container {
     border-style: solid;
 }
@@ -1614,24 +1596,111 @@ footer p {
     color: #ff6b35;
     margin-bottom: 0.5rem;
 }
-
-/* === Media Queries para Móviles === */
 @media (max-width: 768px) {
     .rifa-corazon {
-        grid-template-columns: 1fr; /* Se apilan en móvil */
+        grid-template-columns: 1fr;
     }
     .rifa-progreso {
         margin-bottom: 2rem;
     }
 }
-/* Fix para la visibilidad del contador de la rifa */
 .rifa-contador .hero-countdown-number,
 .rifa-contador .hero-countdown-label {
-    color: #2d3748; /* Un color oscuro para el texto */
+    color: #2d3748;
+}
+.rifa-contador .hero-countdown-item {
+    background: rgba(0, 0, 0, 0.05);
+}
+*/
+
+/* ================================================== */
+/* ============ ESTILOS DE LA TABLA DE GANADORES ==== */
+/* ================================================== */
+
+.winners-table-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1000px;
 }
 
-.rifa-contador .hero-countdown-item {
-    background: rgba(0, 0, 0, 0.05); /* Un fondo sutil para cada caja */
+.winners-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.winners-table thead {
+    background: linear-gradient(45deg, #ff9a56, #ff6b35);
+    color: white;
+    font-size: 1.1rem;
+}
+
+.winners-table th,
+.winners-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.winners-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.winners-table tbody tr:nth-child(even) {
+    background-color: #fdf8f5;
+}
+
+.winners-table tbody tr:hover {
+    background-color: rgba(255, 154, 86, 0.1);
+}
+
+.winners-table td:first-child {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+@media (max-width: 768px) {
+    .winners-table thead {
+        display: none; /* Ocultar cabeceras en móvil */
+    }
+
+    .winners-table, .winners-table tbody, .winners-table tr, .winners-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .winners-table tr {
+        margin-bottom: 1rem;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        border: 1px solid #e2e8f0;
+    }
+    
+    .winners-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    .winners-table td:last-child {
+        border-bottom: none;
+    }
+
+    .winners-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1.5rem;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: #ff6b35;
+    }
 }
 
 /* New Hero Content Styles */
