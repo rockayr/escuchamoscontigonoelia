@@ -18,12 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Funciones ---
 
     /**
-     * Calcula el precio total y actualiza la UI y el enlace de WhatsApp.
+     * Calcula el precio total y actualiza la UI.
      */
     function updatePrice() {
         let ticketCount = parseInt(ticketCountInput.value);
         
-        // Validar que el número no sea menor que 1
         if (isNaN(ticketCount) || ticketCount < 1) {
             ticketCount = 1;
             ticketCountInput.value = '1';
@@ -31,10 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const total = ticketCount * TICKET_PRICE;
         totalPriceSpan.textContent = total;
+    }
 
-        // Actualizar el enlace de WhatsApp con el mensaje predeterminado
+    /**
+     * Genera y abre el enlace de WhatsApp al momento del clic.
+     */
+    function handleWhatsAppClick(event) {
+        event.preventDefault(); // Previene la navegación del href="#"
+        
+        const ticketCount = parseInt(ticketCountInput.value) || 1;
+        const total = ticketCount * TICKET_PRICE;
+        
         const baseMessage = `Hola Ayrton, acabo de comprar ${ticketCount} entrada(s) para el Show Cambalandia del jueves 22/01 por un total de ${total} Bs. Adjunto el comprobante.`;
-        whatsappBtn.href = `https://wa.me/59170844466?text=${encodeURIComponent(baseMessage)}`;
+        const whatsappUrl = `https://wa.me/59170844466?text=${encodeURIComponent(baseMessage)}`;
+        
+        window.open(whatsappUrl, '_blank');
     }
 
     /**
@@ -58,16 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Asignación de Event Listeners ---
 
-    // Abrir popup
     if (showPopupButton) {
         showPopupButton.addEventListener('click', showPopup);
     }
 
-    // Cerrar popup
     if (closePopupButton) {
         closePopupButton.addEventListener('click', closePopup);
     }
-     // Cerrar también al hacer clic en el overlay
+
     if (qrPopup) {
         qrPopup.addEventListener('click', (event) => {
             if (event.target === qrPopup) {
@@ -94,8 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Actualizar precio si el usuario escribe directamente en el input
     if (ticketCountInput) {
         ticketCountInput.addEventListener('input', updatePrice);
+    }
+
+    // Event listener para el botón de WhatsApp
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', handleWhatsAppClick);
     }
 });
