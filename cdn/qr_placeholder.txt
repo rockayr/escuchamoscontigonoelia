@@ -1,0 +1,8 @@
+NOTA: Para completar la funcionalidad de donaciones en Bolivia, 
+agrega el archivo 'qr.jpeg' a esta carpeta cdn/
+
+El archivo qr.jpeg debe contener el código QR para donaciones 
+(puede ser de una billetera digital, cuenta bancaria, etc.)
+
+Una vez agregado, el modal de donación mostrará automáticamente 
+el código QR cuando detecte usuarios desde Bolivia.

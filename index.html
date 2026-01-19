@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escuchamos contigo Noelia</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- GLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Unified Header -->
     <header id="mainHeader">
@@ -19,7 +21,7 @@
                 <img src="cdn/procesador.jpg" alt="Procesador" class="processor-icon">
                 <div class="logo">Escuchamos contigo Noelia</div>
             </div>
-            
+
             <div class="nav-center">
                 <ul class="nav-links">
                     <li><a href="#progreso">Progreso</a></li>
@@ -28,14 +30,14 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
-            
+
             <div class="nav-right">
                 <button class="donate-btn" onclick="openDonationModal()">¡Dona Ahora!</button>
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-            
+
             <!-- Mobile Menu -->
             <div class="mobile-menu" id="mobileMenu">
                 <ul class="mobile-nav-links">
@@ -63,364 +65,77 @@
                     <h1>Escuchamos contigo Noelia</h1>
                     <h3>Un eco de esperanza desde 2016</h3>
                     <p>
-                        El <strong>1 de septiembre de 2016</strong>, el mundo de Noelia se llenó de sonido por primera vez. Hoy, el tiempo nos llama a una nueva misión: actualizar sus procesadores para que su mundo no vuelva al silencio. Este proyecto es un acto de amor y una promesa de que seguirá escuchando.
+                        El <strong>1 de septiembre de 2016</strong>, el mundo de Noelia se llenó de sonido por primera
+                        vez. Hoy, el tiempo nos llama a una nueva misión: actualizar sus procesadores para que su mundo
+                        no vuelva al silencio. Este proyecto es un acto de amor y una promesa de que seguirá escuchando.
                     </p>
                 </div>
             </div>
         </div>
+        <a href="#evento" class="scroll-down-arrow" aria-label="Scroll down to event details">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
-    <!-- ================================================== -->
-    <!-- ============ SECCIÓN DE LA GRAN RIFA (Deshabilitada) ============= -->
-    <!-- ================================================== -->
-    <!--
-    <section id="rifa" class="section">
+    <!-- Event Banner -->
+    <section class="event-banner">
+        <div class="container banner-container">
+            <p><strong>¡Evento especial!</strong> Jueves 22/01 Cambalandia</p>
+            <a href="chaplin/index.html" class="cta-button small-button">Compra tus entradas aquí</a>
+        </div>
+    </section>
+
+    <!-- Sobre el Evento -->
+    <section id="evento" class="section">
         <div class="container">
-            <h2 style="color: #2d3748;">La Gran Rifa por Noelia</h2>
-            <div class="rifa-corazon">
-                <div class="anuncio-transparencia">
-                    <i class="fas fa-bullhorn"></i>
-                    <div>
-                        <p><strong>¡Sorteo de la Rifa: 22 de Noviembre!</strong></p>
-                        <p>Con inmensa gratitud por su apoyo, anunciamos un evento especial el <strong>sábado 22 de noviembre de 2025</strong>, donde realizaremos el sorteo de la rifa. ¡Juntos llegaremos a la meta!</p>
-                    </div>
-                </div>
-                <div class="rifa-contador">
-                    <h3>Sorteo en:</h3>
-                    <div class="hero-countdown-timer">
-                        <div class="hero-countdown-item">
-                            <span class="hero-countdown-number" id="rifaDays">--</span>
-                            <span class="hero-countdown-label">Días</span>
-                        </div>
-                        <div class="hero-countdown-item">
-                            <span class="hero-countdown-number" id="rifaHours">--</span>
-                            <span class="hero-countdown-label">Horas</span>
-                        </div>
-                        <div class="hero-countdown-item">
-                            <span class="hero-countdown-number" id="rifaMinutes">--</span>
-                            <span class="hero-countdown-label">Minutos</span>
-                        </div>
-                        <div class="hero-countdown-item">
-                            <span class="hero-countdown-number" id="rifaSeconds">--</span>
-                            <span class="hero-countdown-label">Segundos</span>
-                        </div>
-                    </div>
+            <div class="section-title-with-logo">
+                <div class="chaplin-logo-and-text">
+                    <img src="chaplin/logo.png" alt="Chaplin Show Logo" class="chaplin-logo">
+                    <p>Chaplin Show presenta</p>
                 </div>
             </div>
-            <div class="rifa-comunidad">
-                <div class="rifa-comunidad-bg"></div>
-                <div class="rifa-comunidad-content">
-                    <h3>Un Puente de Voluntad</h3>
-                    <a href="https://jopoi.com.bo/" target="_blank" rel="noopener noreferrer">
-                        <img src="https://jopoi.com.bo/wp-content/uploads/2024/08/Logo-768x200.png" alt="Logo Comunidad Educativa Jopoi">
-                    </a>
-                    <p>Esta rifa es una realidad gracias al apoyo incondicional de los padres, estudiantes y directivos de la <strong>Comunidad Educativa Jopoi</strong>, quienes se han convertido en co-creadores de esta esperanza.</p>
-                </div>
-            </div>
-            <div class="rifa-galeria-premios">
-                <h3>Nuestros Tesoros</h3>
-                <div class="premios-grid">
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-shopping-cart"></i></div>
-                        <div class="premio-info">
-                            <h4>25 Vales de Compra</h4>
-                            <p>Donado por <strong>Makro Parque</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-coffee"></i></div>
-                        <div class="premio-info">
-                            <h4>2 Cafeteras Artesanales</h4>
-                            <p>Por <strong>Daniela Durán</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-birthday-cake"></i></div>
-                        <div class="premio-info">
-                            <h4>2 Budines de Zanahoria</h4>
-                            <p>Por <strong>"Dulce Morena"</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-spa"></i></div>
-                        <div class="premio-info">
-                            <h4>2 Becas de Yoga Restaurativo</h4>
-                            <p>Por <strong>"Glen Artes"</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-leaf"></i></div>
-                        <div class="premio-info">
-                            <h4>1 Abono Foliar</h4>
-                            <p>Donado por <strong>Probiotec</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-mug-hot"></i></div>
-                        <div class="premio-info">
-                            <h4>Set de 8 Posavasos Macramé</h4>
-                            <p>Por <strong>Blanca Soria</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-gem"></i></div>
-                        <div class="premio-info">
-                            <h4>2 Pulseras de Diseño</h4>
-                            <p>Por <strong>"Anne Voss"</strong></p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-blender"></i></div>
-                        <div class="premio-info">
-                            <h4>1 Licuadora</h4>
-                            <p>Premio Sorpresa</p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-lemon"></i></div>
-                        <div class="premio-info">
-                            <h4>1 Exprimidora de Jugos</h4>
-                            <p>Premio Sorpresa</p>
-                        </div>
-                    </div>
-                    <div class="premio-card">
-                        <div class="premio-icon"><i class="fas fa-wine-bottle"></i></div>
-                        <div class="premio-info">
-                            <h4>1 Zumidora de Jugos</h4>
-                            <p>Premio Sorpresa</p>
+            <div class="event-details-grid">
+                <div class="event-info-col">
+                    <div class="event-card">
+                        <img src="chaplin/evento.jpeg" alt="Imagen del evento de Noelia en Chaplin Show"
+                            class="event-image">
+                        <div class="event-info-text">
+                            <h3>Cambalandia</h3>
+                            <p>Únete a nosotros para una noche inolvidable de risas y solidaridad. Todo lo recaudado
+                                será destinado al proyecto "Escuchamos Contigo Noelia".</p>
+                            <div class="event-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span><strong>Fecha:</strong> Jueves, 22 de Enero</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span><strong>Hora:</strong> 21:00</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><strong>Lugar:</strong> Chaplin Show</span>
+                                </div>
+                            </div>
+                            <a href="chaplin/index.html" class="cta-button">Comprar Entradas</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="rifa-cta">
-                <h3>Cada ticket de 20 Bs. es un paso más para que Noelia siga escuchando.</h3>
-                <button class="cta-button" onclick="openRaffleModal()">¡Quiero Participar!</button>
+                <div class="event-map-col">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.5599395537!2d-63.20262772521786!3d-17.765362374568017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7f724e09335%3A0x55b7ab9092f845da!2sChaplin%20Show!5e0!3m2!1ses-419!2sbr!4v1768703366925!5m2!1ses-419!2sbr"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    -->
 
-    <!-- ================================================== -->
-    <!-- ============ SECCIÓN DE GANADORES ================ -->
-    <!-- ================================================== -->
-    <section id="ganadores" class="section">
-        <div class="container">
-            <h2>🏆 ¡Felicidades a los Ganadores! 🏆</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 1.5rem; color: #4a5568;">
-                La rifa "Escuchamos Contigo Noelia" ha concluido con un éxito rotundo gracias a su increíble apoyo. 
-                A continuación, compartimos la lista de los afortunados ganadores. 
-                ¡Su generosidad ha sido la clave para que Noelia siga escuchando el mundo!
-            </p>
-            <p style="text-align: center; margin-bottom: 3rem;">
-                <a href="https://youtu.be/0XMaJ1HDxG8?si=ZzBFBR-KoCZjUtRb" target="_blank" rel="noopener noreferrer" style="color: #ff6b35; font-weight: 600; text-decoration: none; font-size: 1.1rem;">
-                    <i class="fab fa-youtube" style="margin-right: 0.5rem;"></i>Mira el Video del Sorteo Aquí
-                </a>
-            </p>
 
-            <div class="winners-table-container">
-                <table class="winners-table">
-                    <thead>
-                        <tr>
-                            <th>Nombre del Ganador</th>
-                            <th>Número de Ticket</th>
-                            <th>Premio Obtenido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001108</td>
-                            <td data-label="Nombre del Ganador">Pablo Sanchez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001116</td>
-                            <td data-label="Nombre del Ganador">Flor Suarez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000761</td>
-                            <td data-label="Nombre del Ganador">Sebastian Putz</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001017</td>
-                            <td data-label="Nombre del Ganador">Darko Tomelic</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">003739</td>
-                            <td data-label="Nombre del Ganador">Elizabeth Chero</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001625</td>
-                            <td data-label="Nombre del Ganador">Cristo Fernandez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000947</td>
-                            <td data-label="Nombre del Ganador">Israel Saldias</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000945</td>
-                            <td data-label="Nombre del Ganador">Ceci Soruco</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001648</td>
-                            <td data-label="Nombre del Ganador">Arturo Gutierrez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001105</td>
-                            <td data-label="Nombre del Ganador">Blanca Soria</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001602</td>
-                            <td data-label="Nombre del Ganador">Gonzalo Villca</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000268</td>
-                            <td data-label="Nombre del Ganador">Narumi Higa</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000275</td>
-                            <td data-label="Nombre del Ganador">Mariel Argani</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">003660</td>
-                            <td data-label="Nombre del Ganador">Fernando Rivera</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000817</td>
-                            <td data-label="Nombre del Ganador">Antje Tang</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000908</td>
-                            <td data-label="Nombre del Ganador">Carolina Rodriguez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000642</td>
-                            <td data-label="Nombre del Ganador">Mineka Gima</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">003657</td>
-                            <td data-label="Nombre del Ganador">Silvia Villca</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001636</td>
-                            <td data-label="Nombre del Ganador">Marco Antonio Villca</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">001603</td>
-                            <td data-label="Nombre del Ganador">Fernanda Villca</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000263</td>
-                            <td data-label="Nombre del Ganador">Akemi Gushiken</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000859</td>
-                            <td data-label="Nombre del Ganador">Victoria Maier</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">000271</td>
-                            <td data-label="Nombre del Ganador">Ana Oshiro</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">003605</td>
-                            <td data-label="Nombre del Ganador">Emiliano Jimenez</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Vale de compra</td>
-                            <td data-label="Número de Ticket">003652</td>
-                            <td data-label="Nombre del Ganador">Demetrio Avircata</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Licuadora</td>
-                            <td data-label="Número de Ticket">003611</td>
-                            <td data-label="Nombre del Ganador">Martin Ascarrunz</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Pulsera 1</td>
-                            <td data-label="Número de Ticket">000804</td>
-                            <td data-label="Nombre del Ganador">Federico Escudero</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Pulsera 2</td>
-                            <td data-label="Número de Ticket">000755</td>
-                            <td data-label="Nombre del Ganador">Pablo S</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Posavasos</td>
-                            <td data-label="Número de Ticket">000505</td>
-                            <td data-label="Nombre del Ganador">Mariana Uslar</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Abono Foliar</td>
-                            <td data-label="Número de Ticket">000512</td>
-                            <td data-label="Nombre del Ganador">Jose Antonio Prado</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Budin de zanahoria 1</td>
-                            <td data-label="Número de Ticket">001122</td>
-                            <td data-label="Nombre del Ganador">Rodrigo Zubieta</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Budin de zanahoria 2</td>
-                            <td data-label="Número de Ticket">000279</td>
-                            <td data-label="Nombre del Ganador">Eiki Nozato</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Beca de Yoga Restaurativo 1</td>
-                            <td data-label="Número de Ticket">001607</td>
-                            <td data-label="Nombre del Ganador">Manuel Villca</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Beca de Yoga Restaurativo 2</td>
-                            <td data-label="Número de Ticket">003727</td>
-                            <td data-label="Nombre del Ganador">Jimena Limachi</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Cafetera Artesanal 1</td>
-                            <td data-label="Número de Ticket">003708</td>
-                            <td data-label="Nombre del Ganador">Yuliana Castillo</td>
-                        </tr>
-                        <tr>
-                            <td data-label="Premio Obtenido">Cafetera Artesanal 2</td>
-                            <td data-label="Número de Ticket">001617</td>
-                            <td data-label="Nombre del Ganador">Keila Sanchez</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <div style="text-align: center; margin-top: 3rem; background: rgba(255, 237, 213, 0.7); padding: 2rem; border-radius: 15px; border-left: 5px solid #ff6b35;">
-                <h3 style="color: #2d3748; font-size: 1.5rem; margin-bottom: 1rem;">¡Gracias por ser parte de este sueño!</h3>
-                <p style="color: #4a5568; font-size: 1.1rem;">
-                    Aunque la rifa ha terminado, el camino para asegurar los procesadores de Noelia continúa. 
-                    Cada donación sigue siendo un pilar fundamental en este proyecto.
-                </p>
-                <button class="cta-button" onclick="openDonationModal()" style="margin-top: 1.5rem;">Quiero Donar</button>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Progress Section -->
     <section class="progress-section" id="progreso">
@@ -428,17 +143,20 @@
             <div class="progress-container">
                 <h2>Progreso del Proyecto</h2>
                 <p>Meta: USD 17,712 (Costo de <strong>dos procesadores de sonido</strong> Nucleus 8)</p>
-                <div style="background: rgba(255, 154, 86, 0.1); border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid #ff9a56; text-align: center;">
+                <div
+                    style="background: rgba(255, 154, 86, 0.1); border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid #ff9a56; text-align: center;">
                     <p style="color: #4a5568; font-weight: 500; margin: 0; font-size: 1.1rem; line-height: 1.6;">
                         <i class="fas fa-info-circle" style="margin-right: 0.5rem; color: #ff6b35;"></i>
-                        Esta barra de progreso representa nuestra esperanza, pero la verdadera historia está en el viaje de Noelia. Te invitamos a conocer su mundo, su resiliencia y a descubrir cómo tu apoyo puede hacer que su futuro siga sonando con fuerza.
+                        Esta barra de progreso representa nuestra esperanza, pero la verdadera historia está en el viaje
+                        de Noelia. Te invitamos a conocer su mundo, su resiliencia y a descubrir cómo tu apoyo puede
+                        hacer que su futuro siga sonando con fuerza.
                     </p>
                 </div>
-                
+
                 <div class="progress-bar">
                     <div class="progress-fill"></div>
                 </div>
-                
+
                 <div class="progress-stats">
                     <div class="stat">
                         <div class="stat-number">USD 4,190</div>
@@ -469,59 +187,78 @@
                     <div class="timeline-content-container">
                         <div class="timeline-year">2013 - El Diagnóstico</div>
                         <div class="timeline-content">
-                            Cuando Noelia tenía 2 años, recibimos el diagnóstico: hipoacusia neurosensorial bilateral profunda. Un mundo de silencio se abría ante nosotros, pero también un camino de esperanza. No respondía a estímulos sonoros y los audífonos convencionales no eran una opción. Este momento cambió nuestras vidas para siempre.
+                            Cuando Noelia tenía 2 años, recibimos el diagnóstico: hipoacusia neurosensorial bilateral
+                            profunda. Un mundo de silencio se abría ante nosotros, pero también un camino de esperanza.
+                            No respondía a estímulos sonoros y los audífonos convencionales no eran una opción. Este
+                            momento cambió nuestras vidas para siempre.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
-                        <img src="cdn/20160708_073303.jpg" alt="Cirugía de implante coclear de Noelia" class="timeline-image">
+                        <img src="cdn/20160708_073303.jpg" alt="Cirugía de implante coclear de Noelia"
+                            class="timeline-image">
                     </div>
                     <div class="timeline-content-container">
                         <div class="timeline-year">2016 - La Cirugía que Cambió Todo</div>
                         <div class="timeline-content">
-                            A los 5 años, Noelia recibió sus implantes cocleares bilaterales. Como familia, sabíamos que esta cirugía cambiaría nuestras vidas para siempre. Fue un proceso lleno de esperanza, nervios y fe en que todo saldría bien. Los médicos nos explicaron cada paso del procedimiento.
+                            A los 5 años, Noelia recibió sus implantes cocleares bilaterales. Como familia, sabíamos que
+                            esta cirugía cambiaría nuestras vidas para siempre. Fue un proceso lleno de esperanza,
+                            nervios y fe en que todo saldría bien. Los médicos nos explicaron cada paso del
+                            procedimiento.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
-                        <img src="cdn/20170225_090703.jpg" alt="Encendido de los implantes cocleares" class="timeline-image">
+                        <img src="cdn/20170225_090703.jpg" alt="Encendido de los implantes cocleares"
+                            class="timeline-image">
                     </div>
                     <div class="timeline-content-container">
                         <div class="timeline-year">1 Septiembre 2016 - El Encendido</div>
                         <div class="timeline-content">
-                            El encendido fue exitoso. Noelia escuchó por primera vez y comenzó su proceso de adaptación al mundo sonoro. Para nosotros, esta fecha se convirtió en su segundo cumpleaños, una celebración familiar que nunca olvidaremos. Ver su rostro cuando escuchó nuestras voces fue indescriptible.
+                            El encendido fue exitoso. Noelia escuchó por primera vez y comenzó su proceso de adaptación
+                            al mundo sonoro. Para nosotros, esta fecha se convirtió en su segundo cumpleaños, una
+                            celebración familiar que nunca olvidaremos. Ver su rostro cuando escuchó nuestras voces fue
+                            indescriptible.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
-                        <img src="cdn/20181019_144951.jpg" alt="Noelia creciendo con sus implantes" class="timeline-image">
+                        <img src="cdn/20181019_144951.jpg" alt="Noelia creciendo con sus implantes"
+                            class="timeline-image">
                     </div>
                     <div class="timeline-content-container">
                         <div class="timeline-year">2016-2024 - Creciendo Juntos</div>
                         <div class="timeline-content">
-                            Con acceso al lenguaje oral y escolarización regular en Jopoi, Noelia ha requerido apoyo constante: terapia fonoaudiológica, apoyo psicopedagógico y maestra integradora. Como familia nos sentimos orgullosos de Noelia y de su voluntad para superar las barreras de la comunicación.
+                            Con acceso al lenguaje oral y escolarización regular en Jopoi, Noelia ha requerido apoyo
+                            constante: terapia fonoaudiológica, apoyo psicopedagógico y maestra integradora. Como
+                            familia nos sentimos orgullosos de Noelia y de su voluntad para superar las barreras de la
+                            comunicación.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
-                        <img src="cdn/IMG_0225.jpg" alt="Noelia presentando sobre implantes cocleares" class="timeline-image">
+                        <img src="cdn/IMG_0225.jpg" alt="Noelia presentando sobre implantes cocleares"
+                            class="timeline-image">
                     </div>
                     <div class="timeline-content-container">
                         <div class="timeline-year">Septiembre 2024 - El Taller de Noelia</div>
                         <div class="timeline-content">
-                            Noelia presentó en la escuela Jopoi cómo funciona su implante coclear, mostrando con claridad y confianza lo que ha significado en su vida. Ver su seguridad y determinación me llenó de orgullo y me motivó a iniciar este proyecto. Ella misma se había convertido en una defensora de la inclusión.
+                            Noelia presentó en la escuela Jopoi cómo funciona su implante coclear, mostrando con
+                            claridad y confianza lo que ha significado en su vida. Ver su seguridad y determinación me
+                            llenó de orgullo y me motivó a iniciar este proyecto. Ella misma se había convertido en una
+                            defensora de la inclusión.
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item fade-in">
                     <div class="timeline-image-container">
                         <img src="cdn/IMG_20250703_095914.jpg" alt="Situación actual de Noelia" class="timeline-image">
@@ -529,40 +266,49 @@
                     <div class="timeline-content-container">
                         <div class="timeline-year">Junio 2025 - La Situación Actual</div>
                         <div class="timeline-content">
-                            "Papá, no puedo escuchar" - esas palabras me rompieron el corazón. Después de 8+ años de uso constante, solo le queda 1 procesador funcional. Si falla, su mundo vuelve al silencio. El 14 de junio decidimos crear este proyecto y elevar la voz de Noelia para que más personas conozcan su vida. No podemos permitir que Noelia vuelva al silencio.
+                            "Papá, no puedo escuchar" - esas palabras me rompieron el corazón. Después de 8+ años de uso
+                            constante, solo le queda 1 procesador funcional. Si falla, su mundo vuelve al silencio. El
+                            14 de junio decidimos crear este proyecto y elevar la voz de Noelia para que más personas
+                            conozcan su vida. No podemos permitir que Noelia vuelva al silencio.
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Implant Info -->
             <div class="implant-info">
-                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">Descubriendo el Implante Coclear</h3>
-                
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">Descubriendo el
+                    Implante Coclear</h3>
+
                 <!-- Canva Embed -->
                 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
                  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
                  border-radius: 8px; will-change: transform;">
-                  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-                    src="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-                  </iframe>
+                    <iframe loading="lazy"
+                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                        src="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?embed"
+                        allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
                 </div>
                 <div style="text-align: center; margin-top: 1rem;">
-                    <a href="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?utm_content=DAGsHnlYbf4&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
-                       target="_blank" rel="noopener" 
-                       style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; opacity: 0.9; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: all 0.3s ease;">
+                    <a href="https://www.canva.com/design/DAGsHnlYbf4/Rqaw1e4Uu0Yv2uJgTx-fzw/view?utm_content=DAGsHnlYbf4&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                        target="_blank" rel="noopener"
+                        style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; opacity: 0.9; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 2px; transition: all 0.3s ease;">
                         📖 Descubriendo el Implante Coclear de Noelia
                     </a>
                 </div>
             </div>
-            
+
             <!-- Deterioro de los Procesadores -->
-            <div class="implant-info" style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.9) 0%, rgba(200, 35, 51, 0.9) 100%), url('cdn/procesador.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">⚠️ El Deterioro de los Procesadores</h3>
+            <div class="implant-info"
+                style="background: linear-gradient(135deg, rgba(220, 53, 69, 0.9) 0%, rgba(200, 35, 51, 0.9) 100%), url('cdn/procesador.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1.5rem; color: white;">⚠️ El Deterioro de
+                    los Procesadores</h3>
                 <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
-                    Después de 8+ años de uso continuo, los procesadores de Noelia muestran signos críticos de deterioro que comprometen su audición.
+                    Después de 8+ años de uso continuo, los procesadores de Noelia muestran signos críticos de deterioro
+                    que comprometen su audición.
                 </p>
-                
+
                 <div class="implant-grid">
                     <div class="implant-item">
                         <i class="fas fa-battery-quarter"></i>
@@ -580,16 +326,18 @@
                         <p>Solo tiene 1 procesador funcional. Si falla, Noelia vuelve al silencio total</p>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
+
+                <div
+                    style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
                     <h4 style="color: white; font-size: 1.3rem; margin-bottom: 1rem;">🚨 Situación Crítica</h4>
                     <p style="color: white; font-size: 1.1rem; line-height: 1.6;">
-                        Los procesadores de sonido son la única esperanza para que Noelia mantenga su conexión con el mundo sonoro. 
+                        Los procesadores de sonido son la única esperanza para que Noelia mantenga su conexión con el
+                        mundo sonoro.
                         Tu apoyo es crucial para que ella pueda seguir escuchándonos.
                     </p>
                 </div>
             </div>
-            
+
             <div class="philosophy-quote">
                 "Los límites de mi lenguaje son los límites de mi mundo"
                 <div class="quote-author">- Ludwig Wittgenstein</div>
@@ -610,43 +358,46 @@
                     <p>Cada aporte, sin importar el monto, nos acerca a la meta.</p>
                     <button class="cta-button" onclick="openDonationModal()">Donar Ahora</button>
                 </div>
-                
+
                 <div class="help-card">
                     <div class="help-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3>Ver Ganadores</h3>
                     <p>Conoce a los afortunados ganadores de nuestra gran rifa solidaria.</p>
-                    <a href="#ganadores" class="cta-button">Ver Ganadores</a>
+                    <a href="rifa/index.html" class="cta-button">Ver Ganadores</a>
                 </div>
-                
+
                 <div class="help-card">
                     <div class="help-icon">
                         <i class="fas fa-share-alt"></i>
                     </div>
                     <h3>Compartir la Historia</h3>
-                    <p>Amplificá su voz compartiendo esta campaña. Tu alcance puede llegar a alguien que quiera ayudar.</p>
+                    <p>Amplificá su voz compartiendo este proyecto. Tu alcance puede llegar a alguien que quiera ayudar.
+                    </p>
                     <button class="cta-button" onclick="openShareModal()">Compartir Ahora</button>
                 </div>
-                
+
                 <div class="help-card">
                     <div class="help-icon">
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3>Voluntariado</h3>
                     <p>Unite como voluntario para ayudar con la organización, difusión o eventos solidarios.</p>
-                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20me%20gustar%C3%ADa%20ser%20voluntario%20para%20la%20campa%C3%B1a%20de%20Noelia.%20%C2%BFPodr%C3%ADas%20contarme%20c%C3%B3mo%20puedo%20ayudar?" class="cta-button">Ser Voluntario</a>
+                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20me%20gustar%C3%ADa%20ser%20voluntario%20para%20la%20campa%C3%B1a%20de%20Noelia.%20%C2%BFPodr%C3%ADas%20contarme%20c%C3%B3mo%20puedo%20ayudar?"
+                        class="cta-button">Ser Voluntario</a>
                 </div>
-                
+
                 <div class="help-card">
                     <div class="help-icon">
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Empresas Amigas</h3>
                     <p>¿Representás una empresa? Tu marca puede sumar, conocé opciones de sponsorship.</p>
-                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20represento%20una%20empresa%20y%20queremos%20sumarnos%20a%20la%20campa%C3%B1a%20de%20Noelia.%20%C2%BFPodr%C3%ADas%20contarme%20sobre%20las%20opciones%20de%20sponsorship?" class="cta-button">Me Sumo</a>
+                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20represento%20una%20empresa%20y%20queremos%20sumarnos%20a%20la%20campa%C3%B1a%20de%20Noelia.%20%C2%BFPodr%C3%ADas%20contarme%20sobre%20las%20opciones%20de%20sponsorship?"
+                        class="cta-button">Me Sumo</a>
                 </div>
-                
+
                 <div class="help-card">
                     <div class="help-icon">
                         <i class="fas fa-star"></i>
@@ -667,9 +418,10 @@
             <p style="font-size: 1.1rem; margin-top: 1rem; font-weight: 500;">
                 Soy Ayrton Argani, papá de Noelia, y estaré encantado de conversar contigo
             </p>
-            
+
             <div class="contact-methods">
-                <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" class="contact-item">
+                <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?"
+                    class="contact-item">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
@@ -693,10 +445,11 @@
     <footer style="background: #2d3748; color: white; text-align: center; padding: 2rem 0; margin-top: 2rem;">
         <div class="container">
             <p style="margin: 0; font-size: 1rem; opacity: 0.8;">Santa Cruz, Bolivia</p>
-            <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; opacity: 0.7; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                © 2025 Todos los derechos reservados 
-                <a href="https://github.com/rockayr" target="_blank" rel="noopener noreferrer" 
-                   style="color: #ff9a56; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 600;">
+            <p
+                style="margin: 0.5rem 0 0 0; font-size: 0.85rem; opacity: 0.7; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                © 2025 Todos los derechos reservados
+                <a href="https://github.com/rockayr" target="_blank" rel="noopener noreferrer"
+                    style="color: #ff9a56; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 600;">
                     <i class="fab fa-github" style="font-size: 1rem;"></i>@rockayr
                 </a>
             </p>
@@ -704,7 +457,8 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" class="fab" title="Contactar a Ayrton por WhatsApp">
+    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?"
+        class="fab" title="Contactar a Ayrton por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -714,12 +468,12 @@
             <button class="modal-close" onclick="closeDonationModal()">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <div class="modal-header">
                 <h2>💖 ¡Gracias por Ayudar a Noelia!</h2>
                 <p>Tu donación puede cambiar su vida hoy</p>
             </div>
-            
+
             <div class="donation-content" id="donationContent">
                 <!-- Content will be populated by JavaScript based on location -->
             </div>
@@ -732,28 +486,30 @@
             <button class="modal-close" onclick="closeAngelModal()">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <div class="modal-header">
                 <h2>⭐ ¡Eres un Ángel para Noelia!</h2>
                 <p>Tu generosidad puede cambiar completamente su vida</p>
             </div>
-            
+
             <div class="donation-content">
-                <p style="color: #d68910; text-align: center; margin-bottom: 1.5rem; font-size: 1rem; font-weight: 600;">
-                    <i class="fas fa-star"></i> Como donador ángel, tu contribución permite cubrir etapas completas del tratamiento de Noelia <i class="fas fa-star"></i>
+                <p
+                    style="color: #d68910; text-align: center; margin-bottom: 1.5rem; font-size: 1rem; font-weight: 600;">
+                    <i class="fas fa-star"></i> Como donador ángel, tu contribución permite cubrir etapas completas del
+                    tratamiento de Noelia <i class="fas fa-star"></i>
                 </p>
-                
+
                 <img src="cdn/qr.png" alt="QR para donaciones Ángel" class="qr-code">
-                
+
                 <div style="text-align: center; margin-top: 1.5rem;">
-                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20ser%20un%20donador%20angel" 
-                       class="cta-button" 
-                       style="background: linear-gradient(45deg, #f39c12, #e67e22); text-decoration: none; display: inline-block;">
+                    <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20ser%20un%20donador%20angel"
+                        class="cta-button"
+                        style="background: linear-gradient(45deg, #f39c12, #e67e22); text-decoration: none; display: inline-block;">
                         <i class="fab fa-whatsapp"></i>
                         ¿Quieres cubrir otro monto?
                     </a>
                 </div>
-                
+
                 <p style="color: #666; font-size: 0.85rem; margin-top: 1.5rem; text-align: center; font-style: italic;">
                     "Un ángel es alguien que hace que lo imposible parezca posible" 💛
                 </p>
@@ -767,22 +523,24 @@
             <button class="modal-close" onclick="closeShareModal()">
                 <i class="fas fa-times"></i>
             </button>
-            
+
             <div class="modal-header">
-                <h2>📢 Compartir la Campaña</h2>
+                <h2>📢 Compartir el Proyecto</h2>
                 <p style="color: #d68910; text-align: center; font-size: 1rem; font-weight: 600;">
-                    <i class="fas fa-heart"></i> Comparte esta imagen para ayudar a más personas a conocer la historia de Noelia <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i> Comparte esta imagen para ayudar a más personas a conocer la historia
+                    de Noelia <i class="fas fa-heart"></i>
                 </p>
             </div>
-            
+
             <div class="donation-content">
                 <div class="share-image-container" style="text-align: center; margin-bottom: 1.5rem;">
-                    <img src="cdn/share.png" alt="Imagen para compartir proyecto de Noelia" 
-                         style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="cdn/share.png" alt="Imagen para compartir proyecto de Noelia"
+                        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
                 </div>
-                
+
                 <div class="share-section">
-                    <div class="share-buttons" style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem;">
+                    <div class="share-buttons"
+                        style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem;">
                         <button class="share-btn" onclick="downloadShareImage()" style="flex: 1; max-width: 200px;">
                             <i class="fas fa-download"></i>
                             Descargar
@@ -793,33 +551,28 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <div style="text-align: center; margin-top: 1.5rem;">
                     <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
                         <strong>Puedes compartir nuestras redes sociales:</strong>
                     </p>
                     <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?" 
-                           target="_blank" 
-                           class="cta-button" 
-                           style="background: #25d366; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                        <a href="https://wa.me/59170844466?text=Hola%20Ayrton,%20quiero%20apoyar%20a%20Noelia%20%C2%BFComo%20puedo%20ayudar?"
+                            target="_blank" class="cta-button"
+                            style="background: #25d366; font-size: 0.9rem; padding: 0.6rem 1rem;">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </a>
-                        <a href="https://www.instagram.com/escuchamoscontigonoelia/" 
-                           target="_blank" 
-                           class="cta-button" 
-                           style="background: #e4405f; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                        <a href="https://www.instagram.com/escuchamoscontigonoelia/" target="_blank" class="cta-button"
+                            style="background: #e4405f; font-size: 0.9rem; padding: 0.6rem 1rem;">
                             <i class="fab fa-instagram"></i> Instagram
                         </a>
-                        <a href="https://www.tiktok.com/@escuchamoscontigonoelia" 
-                           target="_blank" 
-                           class="cta-button" 
-                           style="background: #000000; font-size: 0.9rem; padding: 0.6rem 1rem;">
+                        <a href="https://www.tiktok.com/@escuchamoscontigonoelia" target="_blank" class="cta-button"
+                            style="background: #000000; font-size: 0.9rem; padding: 0.6rem 1rem;">
                             <i class="fab fa-tiktok"></i> TikTok
                         </a>
                     </div>
                 </div>
-                
+
                 <p style="color: #888; font-size: 0.85rem; margin-top: 1.5rem; text-align: center; font-style: italic;">
                     Cada vez que compartes, amplificas la voz de Noelia. ¡Gracias por ser parte de su eco! 💛
                 </p>
@@ -827,48 +580,9 @@
         </div>
     </div>
 
-    <!-- ================================================== -->
-    <!-- ============ MODAL DE LA RIFA (Deshabilitado) ==== -->
-    <!-- ================================================== -->
-    <!--
-    <div class="modal-overlay" id="raffleModal">
-        <div class="donation-modal">
-            <button class="modal-close" onclick="closeRaffleModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <div class="modal-header">
-                <h2>¡Participa en la Gran Rifa!</h2>
-                <p>El sorteo se realizará el 22 de noviembre. ¡Asegura tus números!</p>
-            </div>
-            
-            <div class="donation-content">
-                <h4>Paso 1: Realiza el pago</h4>
-                <p>Escanea el código QR para pagar tus tickets (20 Bs. cada uno).</p>
-                <img src="cdn/qr.png" alt="Código QR para la Rifa" class="qr-code">
 
-                <hr style="border: none; border-top: 1px solid #eee; margin: 1.5rem 0;">
 
-                <h4>Paso 2: Envía tu comprobante</h4>
-                <p>Una vez hecho el pago, haz clic aquí para enviarnos tu comprobante por WhatsApp y recibir tus números.</p>
-                <a href="https://wa.me/59170844466?text=Hola%2C%20acabo%20de%20comprar%20tickets%20para%20la%20rifa%20de%20Noelia.%20%C2%A1Adjunto%20mi%20comprobante!" 
-                target="_blank" 
-                class="cta-button" 
-                style="background: #25d366; font-size: 1rem; padding: 0.8rem 1.5rem; margin-top: 1rem;">
-                    <i class="fab fa-whatsapp"></i> Enviar Comprobante
-                </a>
-            </div>
-        </div>
-    </div>
-    -->
 
-    <!-- Sticky Raffle Banner (Re-enabled) -->
-    <div id="sticky-raffle-banner" class="sticky-raffle-banner">
-        <div class="container banner-container">
-            <p><strong>¡La rifa ha concluido!</strong> Conoce a los ganadores.</p>
-            <a href="#ganadores" class="cta-button small-button">Ver Ganadores</a>
-        </div>
-    </div>
 
     <!-- Swiper.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -886,4 +600,5 @@
         </a>
     </div>
 </body>
+
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Entradas - Chaplin Show "Cambalandia"</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css"> <!-- Reutilizar estilos globales -->
+    <link rel="stylesheet" href="styles.css"> <!-- Estilos específicos de la página -->
+</head>
+
+<body>
+    <!-- Unified Header (simplified for this page) -->
+    <header id="mainHeader">
+        <nav class="container">
+            <div class="nav-left">
+                <img src="../cdn/procesador.jpg" alt="Procesador" class="processor-icon">
+                <div class="logo">Chaplin Show - Cambalandia</div>
+            </div>
+
+            <div class="nav-right">
+                <a href="../index.html" class="cta-button">Volver al Inicio</a>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="event-info-summary">
+            <h1>Comprar Entradas para "Cambalandia"</h1>
+            <p class="subtitle">¡Una noche de risas por una gran causa!</p>
+
+            <div class="summary-details">
+                <p><i class="fas fa-calendar-alt"></i> Jueves 22 de Enero</p>
+                <p><i class="fas fa-clock"></i> 21:00 (2 horas)</p>
+                <p><i class="fas fa-money-bill-wave"></i> 180 Bs. por persona</p>
+                <p><i class="fas fa-user-friends"></i> Mayores de 13 años</p>
+            </div>
+        </section>
+
+        <section id="seat-selection" class="section">
+            <h2>Selecciona tus Asientos</h2>
+            <div class="seating-map-container">
+                <img src="escenario.png" alt="Diseño del Escenario" class="stage-image">
+                <div id="seating-map" class="seating-map">
+                    <!-- Las mesas se renderizarán aquí -->
+                </div>
+            </div>
+            <div id="seating-legend" class="seating-legend">
+                <div class="legend-item"><span class="color-box available"></span> Mesas libres</div>
+                <div class="legend-item"><span class="color-box semi-occupied"></span> Mesas semiocupadas</div>
+                <div class="legend-item"><span class="color-box occupied"></span> Mesas ocupadas</div>
+            </div>
+
+            <div class="reserve-button-container">
+                <button id="show-qr-popup" class="cta-button">Reservar ahora</button>
+            </div>
+        </section>
+
+        <section id="booking-summary" class="section" style="display:none;">
+            <!-- Oculto según requerimiento -->
+        </section>
+    </main>
+
+    <!-- Popup de Pago con QR -->
+    <div id="qr-payment-popup" class="payment-popup-overlay" style="display: none;">
+        <div class="payment-popup">
+            <button id="close-popup" class="popup-close-btn">&times;</button>
+            <h2>Realiza tu Reserva</h2>
+            <p>Escanea el código QR para realizar el pago de tus entradas.</p>
+
+            <div class="qr-code-container">
+                <img src="qr_chaplin.png" alt="Código QR para pago de entradas">
+            </div>
+
+            <div class="ticket-calculator">
+                <label for="ticket-count">Número de Entradas:</label>
+                <div class="calculator-controls">
+                    <button id="decrease-tickets">-</button>
+                    <input type="number" id="ticket-count" value="1" min="1">
+                    <button id="increase-tickets">+</button>
+                </div>
+                <p class="total-price-display">Precio Total: <span id="total-price">180</span> Bs.</p>
+            </div>
+
+            <div class="popup-actions">
+                <a href="qr_chaplin.jpeg" download="QR_Pago_Cambalandia.jpeg" class="cta-button secondary">
+                    <i class="fas fa-download"></i> Descargar QR
+                </a>
+                <a id="whatsapp-receipt-btn" href="#" target="_blank" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Enviar Comprobante
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Chaplin Show "Cambalandia"</p>
+        </div>
+    </footer>
+
+    <!-- QR Code Lightbox Modal -->
+    <div id="qrLightbox" class="lightbox-overlay">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg">
+        <a id="lightboxDownload" href="#" download="qr_chaplin.jpeg" class="lightbox-download-btn">
+            <i class="fas fa-download"></i> Descargar QR
+        </a>
+    </div>
+
+    <script src="../scripts.js"></script> <!-- Reutilizar scripts globales para modales etc. -->
+    <script src="scripts.js"></script> <!-- Script específico de la página -->
+</body>
+
+</html>

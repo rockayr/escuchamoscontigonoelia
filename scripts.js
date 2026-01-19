@@ -1,5 +1,5 @@
 // ==================================================
-// ============ FUNCIONES ORIGINALES ================
+// ============ FUNCIONES ORIGINALES ================ 
 // ==================================================
 
 // Countdown Timer Original
@@ -83,7 +83,7 @@ function setupScrollAnimations() {
             }
         });
     }, observerOptions);
-    document.querySelectorAll('.timeline-item, .help-card').forEach(el => {
+    document.querySelectorAll('.timeline-item, .help-card, .event-banner').forEach(el => {
         observer.observe(el);
     });
 }
@@ -156,16 +156,6 @@ async function openDonationModal() {
     document.body.style.overflow = 'hidden';
 }
 
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.classList.remove('active');
-    }
-    if (!document.querySelector('.modal-overlay.active')) {
-        document.body.style.overflow = '';
-    }
-}
-
 function openAngelModal() { document.getElementById('angelModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
 function openShareModal() { document.getElementById('shareModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
 
@@ -208,19 +198,10 @@ function downloadQR() {
 }
 
 // ==================================================
-// ============ LÓGICA DE LA GRAN RIFA (Deshabilitada) ============== 
+// ============ GLOBAL MODAL FUNCTIONS ==============
 // ==================================================
-/*
-function openRaffleModal() {
-    const modal = document.getElementById('raffleModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeRaffleModal() {
-    const modal = document.getElementById('raffleModal');
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('active');
     }
@@ -229,49 +210,6 @@ function closeRaffleModal() {
     }
 }
 
-function updateRaffleCountdown() {
-    const targetDate = new Date('November 22, 2025 12:00:00').getTime();
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    const rifaDays = document.getElementById('rifaDays');
-    const rifaHours = document.getElementById('rifaHours');
-    const rifaMinutes = document.getElementById('rifaMinutes');
-    const rifaSeconds = document.getElementById('rifaSeconds');
-    if (rifaDays) rifaDays.textContent = days;
-    if (rifaHours) rifaHours.textContent = hours;
-    if (rifaMinutes) rifaMinutes.textContent = minutes;
-    if (rifaSeconds) rifaSeconds.textContent = seconds;
-    if (distance < 0) {
-        if (rifaDays) rifaDays.textContent = '0';
-        if (rifaHours) rifaHours.textContent = '0';
-        if (rifaMinutes) rifaMinutes.textContent = '0';
-        if (rifaSeconds) rifaSeconds.textContent = '0';
-    }
-}
-
-function updateRaffleProgress() {
-    const ticketsVendidos = 50;
-    const totalTickets = 2109;
-    const progressBar = document.getElementById('rifaProgressBar');
-    if (progressBar) {
-        const percentage = (ticketsVendidos / totalTickets) * 100;
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                progressBar.style.width = percentage + '%';
-                observer.disconnect();
-            }
-        }, { threshold: 0.5 });
-        const rifaSection = document.getElementById('rifa');
-        if (rifaSection) {
-            observer.observe(rifaSection);
-        }
-    }
-}
-*/
 // ==================================================
 // ============ QR LIGHTBOX LOGIC ===================
 // ==================================================
@@ -310,60 +248,23 @@ function initializeQrLightbox() {
     });
 }
 
-function handleStickyBannerVisibility() {
-    const banner = document.getElementById('sticky-raffle-banner');
-    const progresoSection = document.getElementById('progreso');
-
-    if (!banner || !progresoSection) {
-        return; // Exit if elements are not found
-    }
-
-    const scrollHandler = () => {
-        const scrollPosition = window.scrollY;
-        const progresoTop = progresoSection.offsetTop;
-
-        // Show the banner from the top of the page until the user scrolls past the 'progreso' section.
-        if (scrollPosition < progresoTop) {
-            banner.classList.add('visible');
-        } else {
-            banner.classList.remove('visible');
-        }
-    };
-
-    // Make the banner visible on initial load with a slight delay for the animation to be noticeable.
-    setTimeout(() => {
-        scrollHandler();
-    }, 100); // A very short delay
-
-    window.addEventListener('scroll', scrollHandler, { passive: true });
-}
-
 // ==================================================
-// ============ INICIALIZACIÓN GENERAL ==============
+// ============ INICIALIZACIÓN GENERAL ============== 
 // ==================================================
 
 document.addEventListener('DOMContentLoaded', () => {
     // --- Lógica Original ---
-    // updateCountdown();
-    // setInterval(updateCountdown, 1000);
+    // updateCountdown(); // Not used anymore
+    // setInterval(updateCountdown, 1000); // Not used anymore
     setupSmoothScrolling();
     setupScrollAnimations();
     setupProgressBarAnimation();
     detectUserCountry();
 
-    // --- Lógica de la Rifa (Deshabilitada) ---
-    // updateRaffleProgress();
-    // updateRaffleCountdown();
-    // setInterval(updateRaffleCountdown, 1000);
-
-    // --- Lógica del Banner Fijo ---
-    handleStickyBannerVisibility();
-
     // --- Manejo de Modales ---
-    // Listener para botones que abren modales (excepto el de la rifa, que tiene su propio onclick)
     document.querySelectorAll('[onclick^="open"]').forEach(btn => {
         const onclickAttr = btn.getAttribute('onclick');
-        if (onclickAttr && onclickAttr !== 'openRaffleModal()') {
+        if (onclickAttr) {
             btn.addEventListener('click', () => {
                 const modalName = onclickAttr.replace('open','').replace('Modal()','').toLowerCase();
                 const modal = document.getElementById(modalName + 'Modal');
@@ -379,16 +280,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.modal-overlay').forEach(modal => {
         modal.addEventListener('click', function(event) {
             if (event.target === this) {
-                // if (this.id === 'raffleModal') {
-                //     closeRaffleModal();
-                // } else {
-                    closeModal(this.id);
-                // }
+                closeModal(this.id);
             }
         });
         const closeBtn = modal.querySelector('.modal-close');
         if(closeBtn) {
-            // const closeFn = modal.id === 'raffleModal' ? closeRaffleModal : () => closeModal(modal.id);
             const closeFn = () => closeModal(modal.id);
             closeBtn.addEventListener('click', closeFn);
         }
@@ -397,11 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                // if (modal.id === 'raffleModal') {
-                //     closeRaffleModal();
-                // } else {
-                    closeModal(modal.id);
-                // }
+                closeModal(modal.id);
             });
         }
     });
@@ -423,7 +315,4 @@ document.addEventListener('DOMContentLoaded', () => {
         touchNavigation: true,
         loop: false,
     });
-
-    // --- Inicialización del Lightbox para QR ---
-    initializeQrLightbox();
 });
